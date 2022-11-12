@@ -21,3 +21,20 @@ implemented in the assignment. The main goal is that finish the Wikipedia setup 
 
 ## Optional: Questions for mentor
 -----------------------------------------------------------------------------------------------------
+# Development Log (Date: 11/07/22 -- 11/11/22)
+
+## Weekly Goals
+Our goals for this week was two-pronged. First, we wanted to establish our methodology for pulling webpage information with C++, and also wanted to review, improve, and submit the project proposal.
+
+## Specific Tasks Completed (and by who)
+All group members convened during meeting times this week and worked together on research of algorithms and rewriting and adding to the project proposal. Meeting together in person allows us to remain on the same page on all details and improve each other’s productivity. Aashish was able to set up the Github page including folders and other necessary components. Ved set up the workspace for our team to work together using the JetBrains Client. Adi and Soumil helped finalize the the updated project proposal with focusing on the main algorithms in our project.
+
+## Problems Encountered
+We realized that a webscrape program written in Python as a means to take data from the website would not fit within the project guidelines. We have found an alternative in utilizing a C++ wrapper (Curl for People) for the Python program that does http requests. Also, we had to arrange for revisions of our project proposal.
+
+## Plans for next week
+Finalize data collection and setup implementation of API for the http requests. This week will be stressful for all of us so workload will be to just fix data collection and make a UML flowchart for the whole program, and then a specific flowchart for functions the thread will go to based off our UML chart.
+
+## Optional: Questions for mentor
+We would deeply appreciate it if we could setup a meeting early next week to discuss our project or to go over the project proposal before we resubmit for a regrade. Please let us know your availability.
+
