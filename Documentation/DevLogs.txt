@@ -1,0 +1,23 @@
+# Development Log (Date: 10/31/22 -- 11/04/22)
+
+## Weekly Goals
+The goal we set for ourselves this week was to figure out the way we wanted our code to function properly. 
+We were deciding whether we will be web scraping or using a Wikipedia API for our project. 
+We have decided to go with web scraping because that was the most efficient option for us to do.
+
+## Specific Tasks Completed (and by who)
+All the tasks that our members did were done together. 
+We had to discuss all our plans for this final project together so we had a good understanding of 
+what is going on. After we all figure out what is going to be implemented in this project, 
+we can officially start working on it. 
+
+## Problems Encountered 
+We haven’t encountered any problems at the moment, besides trying to figure out how 
+we want to approach the code was the main situation. 
+
+## Plans for next week
+Our goal for next week is to start setting up and writing the functions that need to be 
+implemented in the assignment. The main goal is that finish the Wikipedia setup using web scraping. 
+
+## Optional: Questions for mentor
+-----------------------------------------------------------------------------------------------------
