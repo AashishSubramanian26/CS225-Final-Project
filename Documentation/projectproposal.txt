@@ -1,5 +1,7 @@
 Project Proposal: 
 
+Project Proposal: 
+
 ## Leading Question - Soumil
 Your final project should have a clear conclusion or target goal -- given a dataset and a code base that implements some graph algorithms, what can you learn from the dataset? Are you hoping to solve a specific problem? Are you hoping to produce a general search tool? You should clearly describe how your team will use your dataset and algorithms to answer your leading question. Be thorough in your description -- this is the foundation of your project and if your mentor cannot follow your logic, you will not be able to proceed further on the project. NOTE: Not every algorithm implemented in the project must directly answer this question, but you must answer the question using the algorithms you have selected.
 
@@ -10,18 +12,15 @@ In our CS final project, we will be implementing a graph and associated algorith
 To build a graph data structure for us to traverse and find shortest paths within, we will be utilizing libcurl, an API that will allow us to make http requests and procure a list of wikipedia pages from which we can make our graph. We will also be using breadth-first search to traverse the graph, djikstra’s to find shortest path, and yen’s provides multiple paths, which we can use to find a path between pages we think is the most likely one used by a human user. 
 
 
-
-
-
 ## Dataset Acquisition - Ved
 Your final project must use at least one publicly accessible dataset and your proposal must clearly describe what dataset you have chosen to use. This includes succinctly describing:
 
-For out dataset acquisition, we want to be a bit more ambitious with our project and add extra content that we did not learn in this class. As a result we plan to webscrape all of our wikipedia page and their respective links. When we webscrape teh wikipedia page and all of the links, we want to keep track of the parent link (the link where we found our link), parent title, child link (the link where we plan to add to our dataset), child title, and the number of links that the child wikipedia page and the parent wikipedia page share. The number of links that the child page and the parent page share will then be used as weights between two graph nodes. In order to actually websrape all of our data, we plan to use python and dump all of the wikipedia links that we collect into a csv file. Since all of our data is in a csv file, we believe it will be very easy to quickly grab data when creating graphs in C++. This dataset acquisition will be a one time process where we store all of out data into a csv file,a nd we then use the csv file for all other purposes. 
+For our dataset acquisition, we want to be a bit more ambitious with our project and add extra content that we did not learn in this class. As a result, we plan to web scrape all of our Wikipedia pages and their respective links. When we web scrape the Wikipedia page and all of the links, we want to keep track of the parent link (the link where we found our link), parent title, child link (the link where we plan to add to our dataset), child title, and the number of links that the child Wikipedia page and the parent Wikipedia page share. The number of links that the child page and the parent page share will then be used as weights between two graph nodes. In order to actually web scrape all of our data, we plan to use python and dump all of the Wikipedia links that we collect into a CSV file. The specific library that we plan to use in python is called requests to be able to access links, but we will also use Beautiful Soup in order to clean up any weird formatting with the titles and links. Since all of our data is in a CSV file, we believe it will be very easy to quickly grab data when creating graphs in C++. This dataset acquisition will be a one-time process where we store all of our data in a CSV file, and we then use the CSV file for actually building our graph. A couple of information that we will collect includes the titles for the original link and for the child link, the actual urls for the main article and the child article, and also keeping track of the number of links that a child article shares with its parent article. We will only use python for the portion of the project where we create our dataset.
 
 ##Data Format - Ved
 In roughly a paragraph, you should describe to the best of your ability the specifics of your input dataset. At minimum this includes: What is the source of the dataset and what is the input format of said dataset? How big is the dataset? Do you plan to use all of the data or only a subset? If so, how will you define the subset?
 
-After we webscrape all our data, including the parent link, parent title, child link, child title, and the number of links that are shared, we plan to store the data in a simple CSV file. A CSV file is going to be used as it will be one of the simplest ways to store large sets of data other than using databases, which may be harder to implement using C++ since none of use have experience with that. We plan to always store our data in that order so when we use these values to build a graph we can tell which way the graph is directed. The number of links they share with each other will be used as weights when we are creating our graph. When we create the graph, we plan to use the wikipedia title names as the node value while the number of links shared will be the weights. 
+After we web scrape all our data, including the parent link, parent title, child link, child title, and the number of links that are shared, we plan to store the data in a simple CSV file. A CSV file is going to be used as it will be one of the simplest ways to store large sets of data other than using databases, which may be harder to implement using C++ since none of us have experience with that. We plan to always store our data in that order so that when we use these values to build a graph we can tell which way the graph is directed. The number of links they share with each other will be used as weights when we are creating our graph. When we create the graph, we plan to use the Wikipedia title names as the node value while the number of links shared will be the weights. When creating our graph, we plan to use a struct to store some essential pieces of information such as the link and the title of a article in each node. We also plan to keep track of which other nodes a node is connected to within this struct, using a vector of other structs.
 
 ##Data Correction - Adi
 In a paragraph or two, you should describe how will you parse the input data and what checks are you doing to ensure the input data is error-free. At minimum this should dicuss how you will check for missing entries and how will you correct such instances when you find them. Depending on the dataset, it is also reasonable to check for values that are not physically possible or values which are statistical outliers. Note: These are just suggestions -- you may have many other ideas for how to find and correct problems in your dataset
@@ -70,7 +69,7 @@ For BFS, the only input to the function should only be the starting node, and th
 
 ##Function Outputs - Soumil
 What is the expected output for your algorithm? How will you store, print, or otherwise visualize the outcome?
-
+ 
 To output the outcome, we will be printing to the terminal the title of each Wikipedia page that you have to go to in the path formatted as “Page A -> ____ -> ____ -> ____ -> Page B.” We will then print out the most likely used path by the same format onto the terminal. 
 
 ##Function Efficiency - Aashish
@@ -93,3 +92,4 @@ Week of 11/21: Code. Code. Code. Use the UML chart and assign different classes 
 Week of 11/28: Debug and work with Kyle to finalize project execution and begin testing phase. Make tests for code based on edge cases and to test if our time and space complexity of our program is more overbearing than expected. Program should be done by this point so we can work on final project deliverables. 
 
 Week of 12/5: Write and finalize documentation for the project. The README on the github page, written report, and final presentation should be finished during dead week. 
+
