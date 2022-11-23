@@ -1,7 +1,5 @@
 Project Proposal: 
 
-Project Proposal: 
-
 ## Leading Question - Soumil
 Your final project should have a clear conclusion or target goal -- given a dataset and a code base that implements some graph algorithms, what can you learn from the dataset? Are you hoping to solve a specific problem? Are you hoping to produce a general search tool? You should clearly describe how your team will use your dataset and algorithms to answer your leading question. Be thorough in your description -- this is the foundation of your project and if your mentor cannot follow your logic, you will not be able to proceed further on the project. NOTE: Not every algorithm implemented in the project must directly answer this question, but you must answer the question using the algorithms you have selected.
 
@@ -10,6 +8,9 @@ Our leading question is “How can graphs be implemented to help us work with su
 Our project has been inspired by one of the most fastest growing trends amongst gaming streamers during the pandemic – Wikipedia speedruns. This chaotic game of intellect works by giving the player a random webpage to start off, say the Wikipedia page for Waffles, and they have to reach the Wikipedia page for World War 1. Each Wikipedia page has embedded links for different Wikipedia pages for keywords on the initial page, that you can click to navigate to the page of the keyword. You have to keep choosing the correct links to get closer and closer to your end page. The person who used the least amount of links to get from page a to page b wins. Also, you may not go back to a previous page once you have clicked a link on a page. 
 In our CS final project, we will be implementing a graph and associated algorithms in order to build a program that is capable of finding the shortest path through Wikipedia embedded links to get from one Wikipedia page to another. 
 To build a graph data structure for us to traverse and find shortest paths within, we will be utilizing libcurl, an API that will allow us to make http requests and procure a list of wikipedia pages from which we can make our graph. We will also be using breadth-first search to traverse the graph, djikstra’s to find shortest path, and yen’s provides multiple paths, which we can use to find a path between pages we think is the most likely one used by a human user. 
+
+
+
 
 
 ## Dataset Acquisition - Ved
