@@ -59,6 +59,10 @@ class WebScrape():
         print(self.childName)
         print(self.startingIndex)
         print(self.parentName[7057])
+        
+        #idea for number of links shared
+        #We need to keep track of how many times the parent and child links have that are matching
+        #we can use something checking if a parent link is equal to a childname? Something like that
 
     def createCSV(self):
 
