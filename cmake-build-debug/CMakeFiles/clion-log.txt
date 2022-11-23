@@ -1,0 +1,2 @@
+C:\WINDOWS\system32\wsl.exe --distribution cs225-container --exec /bin/bash -c "export CMAKE_COLOR_DIAGNOSTICS=ON && export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/c/Users/vedet/OneDrive/Desktop/CS225/final-project/CS225-Final-Project/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' /mnt/c/Users/vedet/OneDrive/Desktop/CS225/final-project/CS225-Final-Project"
+/bin/bash: /usr/bin/cmake: No such file or directory
