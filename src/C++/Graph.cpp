@@ -53,7 +53,7 @@ void Graph::buildGraph() {
     }
 }
 
-map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start) {
+map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
     map<string, int> dist; 
     map<string, string> prev; 
     map<string, vector<pair<string, unsigned>>> shrt; 
@@ -70,6 +70,7 @@ map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vect
         pq.push(temp); 
     //}
 
+    bool valid; 
     while(!pq.empty()) {
         string vertex = pq.top().second; 
         int disty = pq.top().first; 
@@ -97,7 +98,23 @@ map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vect
         tmp.push_back(make_pair(adj, weight));
         shrt.insert(make_pair(vertex, tmp)); 
 
-    }
+        if(vertex == end) {
+            valid = true; 
+        }
 
+    }
+    
+    //What if path is not valid? Then what do I return?
     return shrt; 
+}
+
+vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+    string vertex = start; 
+    vector<string> result; 
+    result.push_back(start); 
+    while(vertex != end) {
+        vertex = adjMatrix1[vertex].at(0).first; 
+        result.push_back(vertex); 
+    }
+    return result; 
 }
