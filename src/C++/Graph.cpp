@@ -53,7 +53,7 @@ void Graph::buildGraph() {
     }
 }
 
-map<string, pair<string, unsigned>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start) {
+map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start) {
     map<string, int> dist; 
     map<string, string> prev; 
     map<string, vector<pair<string, unsigned>>> shrt; 
