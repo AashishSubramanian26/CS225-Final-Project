@@ -24,6 +24,7 @@ void Graph::buildGraph() {
         while(getline(lineStream, word, ',')){
             string finalWord = word;
             std::cout << word<< endl;
+            //test
 
             //graphNode.push_back(Trim(word));
         }
