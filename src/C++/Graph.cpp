@@ -34,7 +34,7 @@ void Graph::buildGraph() {
     for (int i = 0; i < vec.size(); i++)
     {
         nameInfo[vec[i][1]].push_back(vec[i][3]);
-        nameInfo[vec[i][0]].push_back(vec[i][2]);
+        linkInfo[vec[i][0]].push_back(vec[i][2]);
     }
 
     for (auto i = nameInfo.begin(); i != nameInfo.end(); ++i)
@@ -63,4 +63,20 @@ void Graph::buildGraph() {
     }
 }
 
-//[[Parent Link, Parent Title, Child Link, Child Title, Weight], [Parent Link, Parent Title, Child Link, Child Title, Weight]]
+
+map<string, pair<string, unsigned>> shortestPath(map<string, pair<string, unsigned>> adjMatrix, string start) {
+    map<string, int> cost; 
+    map<string, string> prev; 
+
+    map<string, pair<string, unsigned>> short; 
+
+    for(auto it = adjMatrix.begin(); it != adjMatrix.end(); it++) {
+        cost.pair_insert(it->first, -1000000);
+        cost.pair_insert(it->first, NULL);
+    }
+    cost[start] = 0; 
+
+    
+
+}
+
