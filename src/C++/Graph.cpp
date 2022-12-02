@@ -4,22 +4,18 @@
 
 #include "Graph.h"
 
-
 using namespace std; 
-
-void buildGraph() {
-
 
 void Graph::buildGraph() {
     map<string, vector<string>> nameInfo;
     map<string, vector<string>> linkInfo;
+    //map<string, pair<string, unsigned>> adjMatrix;
 
 //CSV Input
-    vector<vector<string>> vec;
-    //map<string, vector<pair<string, unsigned>>> adjMatrix;
+    vector<vector<string>> csvInput;
 
     fstream fin;
-    fin.open("C:\\Users\\vedet\\OneDrive\\Desktop\\CS225\\final-project\\CS225-Final-Project\\src\\Python Webscraping\\Dataset.csv", ios::in);
+    fin.open(filename, ios::in);
 
     while(!fin.eof()){
         vector<string> graphNode;
@@ -27,12 +23,9 @@ void Graph::buildGraph() {
         getline(fin, line);
         stringstream lineStream (line);
         while(getline(lineStream, word, ',')){
-            string finalWord = word;
-            std::cout << word<< endl;
-
-            //graphNode.push_back(Trim(word));
+            graphNode.push_back(Trim(word));
         }
-        vec.push_back(graphNode);
+        csvInput.push_back(graphNode);
     }
 
 
@@ -52,50 +45,59 @@ void Graph::buildGraph() {
                 {
                     pair<string, unsigned> temp;
                     temp.first = vec[j][3];
-                    temp.second = (unsigned)stoi(vec[j][4]);
-                    adjMatrix[vec[j][1]].push_back(temp);
+                    temp.second = (unsigned)vec[j][4];
+                    adjMatrix[vec[j][1]] = temp;
                 }
             }
         }
     }
-
-    for(auto i = adjMatrix.begin(); i != adjMatrix.end(); ++i)
-    {
-        for (int j = 0; j < (i -> second).size(); j++)
-        {
-
-        }
-    }
 }
 
-
-map<string, pair<string, unsigned>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix, string start) {
-
-
-map<string, pair<string, unsigned>> shortestPath(map<string, pair<string, unsigned>> adjMatrix, string start) {
-    map<string, int> cost; 
+map<string, pair<string, unsigned>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start) {
+    map<string, int> dist; 
     map<string, string> prev; 
+    map<string, vector<pair<string, unsigned>>> shrt; 
 
-    map<string, vector<pair<string, unsigned>>> short;
-
-    for(auto it = adjMatrix.begin(); it != adjMatrix.end(); it++) {
+    for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
         pair<string, int> temp(it->first, -10000000); 
-        cost.insert(temp); 
-        pair<string, int> tmp(it->first, "");
-        prev.insert(tmp);
+        dist.insert(temp); 
+        prev.insert(make_pair(it->first, ""));
     }
-    cost[start] = 0; 
+    dist[start] = 0; 
 
-    for(auto it = adjMatrix.begin(); it != adjMatrix.end(); it++) {
-        pair<string, int> temp(it->first, );
-        pq.push(); 
-    }
+    //for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
+        pair<int, string> temp(0, start);;
+        pq.push(temp); 
+    //}
 
     while(!pq.empty()) {
+        string vertex = pq.top().second; 
+        int disty = pq.top().first; 
+        pq.pop();
+
+        string adj = ""; 
+        int weight = 0;
+        for(auto it = adjMatrix1[vertex].begin(); it != adjMatrix1[vertex].end(); it++) {
+            string adj1 = it->first; 
+            int weight1 = it->second; 
+
+            if(adj1 > adj) {
+                adj = adj1; 
+            }
+            if(weight1 > weight) {
+                weight = weight1; 
+            }
+
+            if(dist[adj1] > dist[vertex] + weight1) {
+                dist[adj1] = dist[vertex] + weight1;
+                pq.push(make_pair(dist.at(adj), adj)); 
+            }
+        }
+        vector<pair<string, unsigned>> tmp; 
+        tmp.push_back(make_pair(adj, weight));
+        shrt.insert(make_pair(vertex, tmp)); 
 
     }
 
-
-
+    return shrt; 
 }
-
