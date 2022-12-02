@@ -20,11 +20,11 @@ using namespace std;
 class Graph {
 public:
     void buildGraph();
-    map<string, pair<string, unsigned>> shortestPath(map<string, pair<string, unsigned>> adjMatrix, string start); 
+    map<string, pair<string, unsigned>> shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix, string start); 
 
 private:
-    priority_queue <int, vector<int>, greater<int>> pq;
-    map<string, pair<string, unsigned>> adjMatrix;
+    priority_queue <pair<string, int>, vector<pair<string, int>>, greater<int>> pq;
+    map<string, vector<pair<string, unsigned>>> adjMatrix;
 };
 
 #endif //FINAL_PROJECT_GRAPH_H

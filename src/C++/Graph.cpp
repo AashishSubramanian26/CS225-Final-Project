@@ -4,6 +4,8 @@
 
 #include "Graph.h"
 
+using namespace std; 
+
 void buildGraph() {
     map<string, vector<string>> nameInfo;
     map<string, vector<string>> linkInfo;
@@ -51,18 +53,29 @@ void buildGraph() {
     }
 }
 
-map<string, pair<string, unsigned>> shortestPath(map<string, pair<string, unsigned>> adjMatrix, string start) {
+map<string, pair<string, unsigned>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix, string start) {
     map<string, int> cost; 
     map<string, string> prev; 
 
-    map<string, pair<string, unsigned>> short; 
+    map<string, vector<pair<string, unsigned>>> short;
 
     for(auto it = adjMatrix.begin(); it != adjMatrix.end(); it++) {
-        cost.pair_insert(it->first, -1000000);
-        cost.pair_insert(it->first, NULL);
+        pair<string, int> temp(it->first, -10000000); 
+        cost.insert(temp); 
+        pair<string, int> tmp(it->first, "");
+        prev.insert(tmp);
     }
     cost[start] = 0; 
 
-    
+    for(auto it = adjMatrix.begin(); it != adjMatrix.end(); it++) {
+        pair<string, int> temp(it->first, );
+        pq.push(); 
+    }
+
+    while(!pq.empty()) {
+
+    }
+
+
 
 }
