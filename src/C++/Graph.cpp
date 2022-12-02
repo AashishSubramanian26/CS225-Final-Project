@@ -4,16 +4,17 @@
 
 #include "Graph.h"
 
-void buildGraph() {
+
+void Graph::buildGraph() {
     map<string, vector<string>> nameInfo;
     map<string, vector<string>> linkInfo;
-    //map<string, pair<string, unsigned>> adjMatrix;
 
 //CSV Input
-    vector<vector<string>> csvInput;
+    vector<vector<string>> vec;
+    //map<string, vector<pair<string, unsigned>>> adjMatrix;
 
     fstream fin;
-    fin.open(filename, ios::in);
+    fin.open("C:\\Users\\vedet\\OneDrive\\Desktop\\CS225\\final-project\\CS225-Final-Project\\src\\Python Webscraping\\Dataset.csv", ios::in);
 
     while(!fin.eof()){
         vector<string> graphNode;
@@ -21,9 +22,12 @@ void buildGraph() {
         getline(fin, line);
         stringstream lineStream (line);
         while(getline(lineStream, word, ',')){
-            graphNode.push_back(Trim(word));
+            string finalWord = word;
+            std::cout << word<< endl;
+
+            //graphNode.push_back(Trim(word));
         }
-        csvInput.push_back(graphNode);
+        vec.push_back(graphNode);
     }
 
 
@@ -43,10 +47,20 @@ void buildGraph() {
                 {
                     pair<string, unsigned> temp;
                     temp.first = vec[j][3];
-                    temp.second = (unsigned)vec[j][4];
-                    adjMatrix[vec[j][1]] = temp;
+                    temp.second = (unsigned)stoi(vec[j][4]);
+                    adjMatrix[vec[j][1]].push_back(temp);
                 }
             }
         }
     }
+
+    for(auto i = adjMatrix.begin(); i != adjMatrix.end(); ++i)
+    {
+        for (int j = 0; j < (i -> second).size(); j++)
+        {
+
+        }
+    }
 }
+
+//[[Parent Link, Parent Title, Child Link, Child Title, Weight], [Parent Link, Parent Title, Child Link, Child Title, Weight]]

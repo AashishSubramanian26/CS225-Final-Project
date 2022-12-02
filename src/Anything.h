@@ -1,8 +1,0 @@
-//
-// Created by vedet on 11/28/2022.
-//
-
-#ifndef FINAL_PROJECT_ANYTHING_H
-#define FINAL_PROJECT_ANYTHING_H
-
-#endif //FINAL_PROJECT_ANYTHING_H
