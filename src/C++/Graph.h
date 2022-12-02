@@ -14,17 +14,22 @@
 #include <algorithm>
 #include <vector>
 #include <queue>
+
+#include <bits/stdc++.h>
+
 //hello 
 using namespace std;
 
 class Graph {
 public:
     void buildGraph();
+
+    map<string, vector<pair<string, unsigned>>> adjMatrix;
     map<string, pair<string, unsigned>> shortestPath(map<string, pair<string, unsigned>> adjMatrix, string start); 
+
 
 private:
     priority_queue <int, vector<int>, greater<int>> pq;
-    map<string, pair<string, unsigned>> adjMatrix;
 };
 
 #endif //FINAL_PROJECT_GRAPH_H
