@@ -176,10 +176,28 @@ map<string, vector<pair<string, unsigned>>> removeEdge(map<string, vector<pair<s
     {
         if ((temp.at(i))->first == (temp.at(parent))->first)
         {
-            (temp.at(i))->first = "to be deleted";
+            (temp.at(i))->second = std::numeric_limits<unsigned>::max();
         }
     }
 }
 
-vector<string> 
+vector<vector<string>> finalSorter(vector<vector<string>> temp)
+{
+    vector<vector<string>> temp89;
+    while(!temp.empty())
+    {
+        unsigned len = temp[0].size();
+        unsigned index = 0;
+        for (int i = 1; i < temp.size(); i++)
+        {
+            if (temp[i].size() < len)
+            {
+                len = temp[i].size();
+                index = i;
+            }
+        }
+        temp89.push_back(temp[index]);
+        temp.erase(temp.begin()+index);
+    }
+}
 
