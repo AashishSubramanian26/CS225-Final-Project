@@ -63,7 +63,7 @@ void Graph::buildGraph() {
     {
         for (int j = 0; j < (i -> second).size(); j++)
         {
-            cout<<
+            cout << 
         }
     }
 }
@@ -91,7 +91,7 @@ map<string, pair<string, unsigned>> shortestPath(map<string, pair<string, unsign
         pq.push(); 
     }
 
-    while(!pq.empty()) {
+    while(!pq.empty()){
 
     }
 
