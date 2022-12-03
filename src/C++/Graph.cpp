@@ -9,9 +9,9 @@
 
 using namespace std;
 
-void Graph::buildGraph() {
-    map<string, vector<string>> nameInfo;
-    map<string, vector<string>> linkInfo;
+void Graph::buildGraph()  {
+    map<string, vector<string> > nameInfo;
+    map<string, vector<string> > linkInfo;
 
 //CSV Input
     vector<vector<string>> vec;
