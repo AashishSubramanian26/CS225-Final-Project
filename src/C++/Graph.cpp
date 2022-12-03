@@ -4,16 +4,15 @@
 
 #include "Graph.h"
 
-
-using namespace std; 
+using namespace std;
 
 
 void Graph::buildGraph() {
-    map<string, vector<string>> nameInfo;
-    map<string, vector<string>> linkInfo;
+    map<string, vector<string> > nameInfo;
+    map<string, vector<string> > linkInfo;
 
 //CSV Input
-    vector<vector<string>> vec;
+    vector<vector<string> > vec;
     //map<string, vector<pair<string, unsigned>>> adjMatrix;
 
     fstream fin;
@@ -57,15 +56,15 @@ void Graph::buildGraph() {
         }
     }
 
-    for(auto i = adjMatrix.begin(); i != adjMatrix.end(); ++i)
-    {
-        for (int j = 0; j < (i -> second).size(); j++)
-        {
-
-        }
-    }
+map<string, vector<pair<string, unsigned>>> Graph::getMap()
+{
+    return adjMatrix;
 }
 
+vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+    map<string, int> dist;
+    map<string, string> prev;
+    map<string, vector<pair<string, unsigned>>> shrt;
 
 map<string, pair<string, unsigned>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix, string start) {
 
@@ -84,10 +83,14 @@ map<string, pair<string, unsigned>> shortestPath(map<string, pair<string, unsign
     }
     cost[start] = 0; 
 
-    for(auto it = adjMatrix.begin(); it != adjMatrix.end(); it++) {
-        pair<string, int> temp(it->first, );
-        pq.push(); 
-    }
+            if(dist[adj1] > dist[vertex] + weight1) {
+                dist[adj1] = dist[vertex] + weight1;
+                pq.push(make_pair(dist.at(adj), adj));
+            }
+        }
+        vector<pair<string, unsigned>> tmp;
+        tmp.push_back(make_pair(adj, weight));
+        shrt.insert(make_pair(vertex, tmp));
 
     while(!pq.empty()) {
 
@@ -95,14 +98,23 @@ map<string, pair<string, unsigned>> shortestPath(map<string, pair<string, unsign
 
 
 
+vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+    string vertex = start;
+    vector<string> result;
+    result.push_back(start);
+    while(vertex != end) {
+        vertex = adjMatrix1[vertex].at(0).first;
+        result.push_back(vertex);
+    }
+    return result;
 }
 
-vector<vector<string> yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K)
+vector<vector<string>> Graph::yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K)
 {
     map<string, vector<pair<string, unsigned>>> temp1 = adjList;
     vector<vector<string>> final;
     vector<vector<string>> temp;
-    
+
     temp.push_back(shortestPath(adjList, start, end));
     for (unsigned k = 1; k < K; k++)
     {
@@ -125,7 +137,7 @@ vector<vector<string> yens(map<string, vector<pair<string, unsigned>>> adjList, 
 
                 if (rootPath == rootPath1)
                 {
-                    temp1 = removeEdge(temp1, temp.at(i), temp.at(i+1));
+                    temp1 = removeEdge(temp1, temp[j][i], temp[j][i+1]);
                 }
             }
 
@@ -170,15 +182,23 @@ vector<vector<string> yens(map<string, vector<pair<string, unsigned>>> adjList, 
     }
 }
 
-map<string, vector<pair<string, unsigned>>> removeEdge(map<string, vector<pair<string, unsigned>>> temp, string parent, string child)
+map<string, vector<pair<string, unsigned> > > removeEdge(map<string, vector<pair<string, unsigned>>> temp, string parent, string child)
 {
     for (auto i = temp.begin(); i < temp.end(); ++i)
     {
-        if ((temp.at(i))->first == (temp.at(parent))->first)
-        {
-            (temp.at(i))->second = std::numeric_limits<unsigned>::max();
+        if ((i->first) == parent)
+        {   
+            for (int j = 0; j < (i->second).size(); j++)
+            {
+                if (i->second[j].first == child)
+                {
+                    i->second[j].second = std::numeric_limits<unsigned>::max();
+                }
+            }
         }
     }
+
+    return temp;
 }
 
 vector<vector<string>> finalSorter(vector<vector<string>> temp)
