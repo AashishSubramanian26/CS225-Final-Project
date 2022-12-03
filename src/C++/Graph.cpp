@@ -82,11 +82,9 @@ map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vect
             string adj1 = it->first; 
             int weight1 = it->second; 
 
-            if(adj1 > adj) {
-                adj = adj1; 
-            }
             if(weight1 > weight) {
                 weight = weight1; 
+                adj = adj1; 
             }
 
             if(dist[adj1] > dist[vertex] + weight1) {
