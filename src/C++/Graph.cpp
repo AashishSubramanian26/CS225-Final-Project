@@ -1,22 +1,24 @@
 //
 // Created by vedet on 11/28/2022.
 //
-
+#include <iostream>
+#include <fstream>
+#include <sstream>
+//#include <>
 #include "Graph.h"
 
 using namespace std;
 
-
 void Graph::buildGraph() {
-    map<string, vector<string> > nameInfo;
-    map<string, vector<string> > linkInfo;
+    map<string, vector<string>> nameInfo;
+    map<string, vector<string>> linkInfo;
 
 //CSV Input
-    vector<vector<string> > vec;
+    vector<vector<string>> vec;
     //map<string, vector<pair<string, unsigned>>> adjMatrix;
 
     fstream fin;
-    fin.open("C:\\Users\\vedet\\OneDrive\\Desktop\\CS225\\final-project\\CS225-Final-Project\\src\\Python Webscraping\\Dataset.csv", ios::in);
+    fin.open(R"(C:\Users\vedet\OneDrive\Desktop\CS225\final-project\CS225-Final-Project\src\Python Webscraping\Dataset.csv)", ios::in);
 
     while(!fin.eof()){
         vector<string> graphNode;
@@ -26,8 +28,7 @@ void Graph::buildGraph() {
         while(getline(lineStream, word, ',')){
             string finalWord = word;
             std::cout << word<< endl;
-
-            //graphNode.push_back(Trim(word));
+            graphNode.push_back(word);
         }
         vec.push_back(graphNode);
     }
@@ -55,6 +56,7 @@ void Graph::buildGraph() {
             }
         }
     }
+}
 
 map<string, vector<pair<string, unsigned>>> Graph::getMap()
 {
@@ -66,22 +68,34 @@ vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> a
     map<string, string> prev;
     map<string, vector<pair<string, unsigned>>> shrt;
 
-map<string, pair<string, unsigned>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix, string start) {
-
-
-map<string, pair<string, unsigned>> shortestPath(map<string, pair<string, unsigned>> adjMatrix, string start) {
-    map<string, int> cost; 
-    map<string, string> prev; 
-
-    map<string, vector<pair<string, unsigned>>> short;
-
-    for(auto it = adjMatrix.begin(); it != adjMatrix.end(); it++) {
-        pair<string, int> temp(it->first, -10000000); 
-        cost.insert(temp); 
-        pair<string, int> tmp(it->first, "");
-        prev.insert(tmp);
+    for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
+        pair<string, int> temp(it->first, -10000000);
+        dist.insert(temp);
+        prev.insert(make_pair(it->first, ""));
     }
-    cost[start] = 0; 
+    dist[start] = 0;
+
+    //for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
+    pair<int, string> temp(0, start);;
+    pq.push(temp);
+    //}
+
+    bool valid;
+    while(!pq.empty()) {
+        string vertex = pq.top().second;
+        int disty = pq.top().first;
+        pq.pop();
+
+        string adj = "";
+        int weight = 0;
+        for(auto it = adjMatrix1[vertex].begin(); it != adjMatrix1[vertex].end(); it++) {
+            string adj1 = it->first;
+            int weight1 = it->second;
+
+            if(weight1 > weight) {
+                weight = weight1;
+                adj = adj1;
+            }
 
             if(dist[adj1] > dist[vertex] + weight1) {
                 dist[adj1] = dist[vertex] + weight1;
@@ -92,22 +106,17 @@ map<string, pair<string, unsigned>> shortestPath(map<string, pair<string, unsign
         tmp.push_back(make_pair(adj, weight));
         shrt.insert(make_pair(vertex, tmp));
 
-    while(!pq.empty()) {
+        if(vertex == end) {
+            valid = true;
+        }
 
     }
 
+    //what if path is not valid? What do we return?
+    return convertMaptoVector(shrt, start, end);
 
-
-vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
-    string vertex = start;
-    vector<string> result;
-    result.push_back(start);
-    while(vertex != end) {
-        vertex = adjMatrix1[vertex].at(0).first;
-        result.push_back(vertex);
-    }
-    return result;
 }
+
 
 vector<vector<string>> Graph::yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K)
 {
@@ -145,7 +154,7 @@ vector<vector<string>> Graph::yens(map<string, vector<pair<string, unsigned>>> a
             {
                 if (rootPath[p] != spurNode)
                 {
-
+                    
                 }
             }
 
@@ -220,4 +229,3 @@ vector<vector<string>> finalSorter(vector<vector<string>> temp)
         temp.erase(temp.begin()+index);
     }
 }
-
