@@ -53,7 +53,7 @@ void Graph::buildGraph() {
     }
 }
 
-map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
     map<string, int> dist; 
     map<string, string> prev; 
     map<string, vector<pair<string, unsigned>>> shrt; 
@@ -101,9 +101,10 @@ map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vect
         }
 
     }
+
+    //what if path is not valid? What do we return?
+    return convertMaptoVector(shrt, start, end); 
     
-    //What if path is not valid? Then what do I return?
-    return shrt; 
 }
 
 vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {

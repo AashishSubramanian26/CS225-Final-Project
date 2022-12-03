@@ -22,7 +22,7 @@ class Graph {
 public:
     void buildGraph();
     
-    map<string, vector<pair<string, unsigned>>> shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end);
+    vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end);
 
     vector<string> convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end); 
 
