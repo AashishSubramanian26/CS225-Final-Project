@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "utility": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "vector": "cpp"
     }
 }
