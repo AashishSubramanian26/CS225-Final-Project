@@ -1,7 +1,10 @@
 //
 // Created by vedet on 11/28/2022.
 //
-
+#include <iostream>
+#include <fstream>
+#include <sstream>
+//#include <>
 #include "Graph.h"
 
 using namespace std;
@@ -15,7 +18,7 @@ void Graph::buildGraph() {
     //map<string, vector<pair<string, unsigned>>> adjMatrix;
 
     fstream fin;
-    fin.open("C:\\Users\\vedet\\OneDrive\\Desktop\\CS225\\final-project\\CS225-Final-Project\\src\\Python Webscraping\\Dataset.csv", ios::in);
+    fin.open(R"(C:\Users\vedet\OneDrive\Desktop\CS225\final-project\CS225-Final-Project\src\Python Webscraping\Dataset.csv)", ios::in);
 
     while(!fin.eof()){
         vector<string> graphNode;
@@ -25,9 +28,7 @@ void Graph::buildGraph() {
         while(getline(lineStream, word, ',')){
             string finalWord = word;
             std::cout << word<< endl;
-            //test
-
-            //graphNode.push_back(Trim(word));
+            graphNode.push_back(word);
         }
         vec.push_back(graphNode);
     }
@@ -49,17 +50,22 @@ void Graph::buildGraph() {
                 {
                     pair<string, unsigned> temp;
                     temp.first = vec[j][3];
-                    temp.second = (unsigned)vec[j][4];
-                    adjMatrix[vec[j][1]] = temp;
+                    temp.second = (unsigned)stoi(vec[j][4]);
+                    adjMatrix[vec[j][1]].push_back(temp);
                 }
             }
         }
     }
 }
 
-map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+map<string, vector<pair<string, unsigned>>> Graph::getMap()
+{
+    return adjMatrix;
+}
+
+vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
     map<string, int> dist;
-    map<string, string> prev; 
+    map<string, string> prev;
     map<string, vector<pair<string, unsigned>>> shrt;
 
     for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
@@ -70,8 +76,8 @@ map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vect
     dist[start] = 0;
 
     //for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
-        pair<int, string> temp(0, start);;
-        pq.push(temp);
+    pair<int, string> temp(0, start);;
+    pq.push(temp);
     //}
 
     bool valid;
@@ -106,8 +112,9 @@ map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vect
 
     }
 
-    //What if path is not valid? Then what do I return?
-    return shrt;
+    //what if path is not valid? What do we return?
+    return convertMaptoVector(shrt, start, end);
+
 }
 
 
@@ -121,8 +128,8 @@ vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigne
     }
     return result;
 }
-
-vector<vector<string> Graph::yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K)
+/*
+vector<vector<string>> Graph::yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K)
 {
     map<string, vector<pair<string, unsigned>>> temp1 = adjList;
     vector<vector<string>> final;
@@ -225,3 +232,4 @@ vector<vector<string>> finalSorter(vector<vector<string>> temp)
         temp.erase(temp.begin()+index);
     }
 }
+*/
