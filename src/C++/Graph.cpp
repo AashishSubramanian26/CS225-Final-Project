@@ -1,21 +1,24 @@
 //
 // Created by vedet on 11/28/2022.
 //
-
+#include <iostream>
+#include <fstream>
+#include <sstream>
+//#include <>
 #include "Graph.h"
 
-using namespace std; 
+using namespace std;
 
 void Graph::buildGraph() {
     map<string, vector<string>> nameInfo;
     map<string, vector<string>> linkInfo;
-    //map<string, pair<string, unsigned>> adjMatrix;
 
 //CSV Input
-    vector<vector<string>> csvInput;
+    vector<vector<string>> vec;
+    //map<string, vector<pair<string, unsigned>>> adjMatrix;
 
     fstream fin;
-    fin.open(filename, ios::in);
+    fin.open(R"(C:\Users\vedet\OneDrive\Desktop\CS225\final-project\CS225-Final-Project\src\Python Webscraping\Dataset.csv)", ios::in);
 
     while(!fin.eof()){
         vector<string> graphNode;
@@ -23,9 +26,11 @@ void Graph::buildGraph() {
         getline(fin, line);
         stringstream lineStream (line);
         while(getline(lineStream, word, ',')){
-            graphNode.push_back(Trim(word));
+            string finalWord = word;
+            std::cout << word<< endl;
+            graphNode.push_back(word);
         }
-        csvInput.push_back(graphNode);
+        vec.push_back(graphNode);
     }
 
 
@@ -45,85 +50,91 @@ void Graph::buildGraph() {
                 {
                     pair<string, unsigned> temp;
                     temp.first = vec[j][3];
-                    temp.second = (unsigned)vec[j][4];
-                    adjMatrix[vec[j][1]] = temp;
+                    temp.second = (unsigned)stoi(vec[j][4]);
+                    adjMatrix[vec[j][1]].push_back(temp);
                 }
             }
         }
     }
 }
 
-map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
-    map<string, int> dist; 
-    map<string, string> prev; 
-    map<string, vector<pair<string, unsigned>>> shrt; 
+map<string, vector<pair<string, unsigned>>> Graph::getMap()
+{
+    return adjMatrix;
+}
+
+vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+    map<string, int> dist;
+    map<string, string> prev;
+    map<string, vector<pair<string, unsigned>>> shrt;
 
     for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
-        pair<string, int> temp(it->first, -10000000); 
-        dist.insert(temp); 
+        pair<string, int> temp(it->first, -10000000);
+        dist.insert(temp);
         prev.insert(make_pair(it->first, ""));
     }
-    dist[start] = 0; 
+    dist[start] = 0;
 
     //for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
-        pair<int, string> temp(0, start);;
-        pq.push(temp); 
+    pair<int, string> temp(0, start);;
+    pq.push(temp);
     //}
 
-    bool valid; 
+    bool valid;
     while(!pq.empty()) {
-        string vertex = pq.top().second; 
-        int disty = pq.top().first; 
+        string vertex = pq.top().second;
+        int disty = pq.top().first;
         pq.pop();
 
-        string adj = ""; 
+        string adj = "";
         int weight = 0;
         for(auto it = adjMatrix1[vertex].begin(); it != adjMatrix1[vertex].end(); it++) {
-            string adj1 = it->first; 
-            int weight1 = it->second; 
+            string adj1 = it->first;
+            int weight1 = it->second;
 
             if(weight1 > weight) {
-                weight = weight1; 
-                adj = adj1; 
+                weight = weight1;
+                adj = adj1;
             }
 
             if(dist[adj1] > dist[vertex] + weight1) {
                 dist[adj1] = dist[vertex] + weight1;
-                pq.push(make_pair(dist.at(adj), adj)); 
+                pq.push(make_pair(dist.at(adj), adj));
             }
         }
-        vector<pair<string, unsigned>> tmp; 
+        vector<pair<string, unsigned>> tmp;
         tmp.push_back(make_pair(adj, weight));
-        shrt.insert(make_pair(vertex, tmp)); 
+        shrt.insert(make_pair(vertex, tmp));
 
         if(vertex == end) {
-            valid = true; 
+            valid = true;
         }
 
     }
-    
-    //What if path is not valid? Then what do I return?
-    return shrt; 
+
+    //what if path is not valid? What do we return?
+    return convertMaptoVector(shrt, start, end);
+
 }
 
 
 vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
-    string vertex = start; 
-    vector<string> result; 
-    result.push_back(start); 
+    string vertex = start;
+    vector<string> result;
+    result.push_back(start);
     while(vertex != end) {
-        vertex = adjMatrix1[vertex].at(0).first; 
-        result.push_back(vertex); 
+        vertex = adjMatrix1[vertex].at(0).first;
+        result.push_back(vertex);
     }
-    return result; 
+    return result;
 }
 
-vector<vector<string> yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K)
+vector<vector<string>> Graph::yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K)
 {
     map<string, vector<pair<string, unsigned>>> temp1 = adjList;
     vector<vector<string>> final;
     vector<vector<string>> temp;
-    
+
     temp.push_back(shortestPath(adjList, start, end));
     for (unsigned k = 1; k < K; k++)
     {
@@ -158,13 +169,13 @@ vector<vector<string> yens(map<string, vector<pair<string, unsigned>>> adjList, 
                 }
             }
 
-            vector<string> spurPath = shortestPath(temp, spurNode, end);
+            vector<string> spurPath = shortestPath(temp1, spurNode, end);
             vector<string> totalPath;
             totalPath.insert(totalPath.end(), rootPath.begin(), rootPath.end());
             totalPath.insert(totalPath.end(), spurPath.begin(), spurPath.end());
 
             int checker = 0;
-            for (int i = 0; i < final.size(); i++)
+            for (unsigned i = 0; i < final.size(); i++)
             {
                 if (final[i] == totalPath)
                 {
@@ -179,7 +190,7 @@ vector<vector<string> yens(map<string, vector<pair<string, unsigned>>> adjList, 
 
             temp1 = adjList;
         }
-        
+
         if (final.empty())
         {
             break;
@@ -189,11 +200,13 @@ vector<vector<string> yens(map<string, vector<pair<string, unsigned>>> adjList, 
         final[k] = temp[0];
         temp.erase(temp.begin());
     }
+
+    return final;
 }
 
 map<string, vector<pair<string, unsigned>>> removeEdge(map<string, vector<pair<string, unsigned>>> temp, string parent, string child)
 {
-    for (auto i = temp.begin(); i < temp.end(); ++i)
+    for (auto i = temp.begin(); i != temp.end(); ++i)
     {
         if ((temp.at(i))->first == (temp.at(parent))->first)
         {
