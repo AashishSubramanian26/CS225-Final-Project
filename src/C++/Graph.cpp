@@ -128,7 +128,7 @@ vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigne
     }
     return result;
 }
-/*
+
 vector<vector<string>> Graph::yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K)
 {
     map<string, vector<pair<string, unsigned>>> temp1 = adjList;
@@ -169,13 +169,13 @@ vector<vector<string>> Graph::yens(map<string, vector<pair<string, unsigned>>> a
                 }
             }
 
-            vector<string> spurPath = shortestPath(temp, spurNode, end);
+            vector<string> spurPath = shortestPath(temp1, spurNode, end);
             vector<string> totalPath;
             totalPath.insert(totalPath.end(), rootPath.begin(), rootPath.end());
             totalPath.insert(totalPath.end(), spurPath.begin(), spurPath.end());
 
             int checker = 0;
-            for (int i = 0; i < final.size(); i++)
+            for (unsigned i = 0; i < final.size(); i++)
             {
                 if (final[i] == totalPath)
                 {
@@ -200,11 +200,13 @@ vector<vector<string>> Graph::yens(map<string, vector<pair<string, unsigned>>> a
         final[k] = temp[0];
         temp.erase(temp.begin());
     }
+
+    return final;
 }
 
 map<string, vector<pair<string, unsigned>>> removeEdge(map<string, vector<pair<string, unsigned>>> temp, string parent, string child)
 {
-    for (auto i = temp.begin(); i < temp.end(); ++i)
+    for (auto i = temp.begin(); i != temp.end(); ++i)
     {
         if ((temp.at(i))->first == (temp.at(parent))->first)
         {
@@ -232,4 +234,3 @@ vector<vector<string>> finalSorter(vector<vector<string>> temp)
         temp.erase(temp.begin()+index);
     }
 }
-*/

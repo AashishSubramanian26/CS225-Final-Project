@@ -27,11 +27,11 @@ public:
     vector<string> shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end);
     map<string, vector<pair<string, unsigned>>> getMap();
 
-    //vector<vector<string>> finalSorter(vector<vector<string>> temp);
+    vector<vector<string>> finalSorter(vector<vector<string>> temp);
 
-    //map<string, vector<pair<string, unsigned>>> removeEdge(map<string, vector<pair<string, unsigned>>> temp, string parent, string child);
+    map<string, vector<pair<string, unsigned>>> removeEdge(map<string, vector<pair<string, unsigned>>> temp, string parent, string child);
 
-    //vector<vector<string>> yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K);
+    vector<vector<string>> yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K);
 
 
 private:
