@@ -4,6 +4,7 @@
 
 #include "Graph.h"
 
+using namespace std;
 
 void Graph::buildGraph() {
     map<string, vector<string>> nameInfo;
@@ -48,36 +49,179 @@ void Graph::buildGraph() {
                 {
                     pair<string, unsigned> temp;
                     temp.first = vec[j][3];
-                    temp.second = (unsigned)stoi(vec[j][4]);
-                    adjMatrix[vec[j][1]].push_back(temp);
+                    temp.second = (unsigned)vec[j][4];
+                    adjMatrix[vec[j][1]] = temp;
                 }
             }
         }
     }
+}
 
-    for(auto i = adjMatrix.begin(); i != adjMatrix.end(); ++i)
+map<string, vector<pair<string, unsigned>>> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+    map<string, int> dist;
+    map<string, string> prev; 
+    map<string, vector<pair<string, unsigned>>> shrt;
+
+    for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
+        pair<string, int> temp(it->first, -10000000);
+        dist.insert(temp);
+        prev.insert(make_pair(it->first, ""));
+    }
+    dist[start] = 0;
+
+    //for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
+        pair<int, string> temp(0, start);;
+        pq.push(temp);
+    //}
+
+    bool valid;
+    while(!pq.empty()) {
+        string vertex = pq.top().second;
+        int disty = pq.top().first;
+        pq.pop();
+
+        string adj = "";
+        int weight = 0;
+        for(auto it = adjMatrix1[vertex].begin(); it != adjMatrix1[vertex].end(); it++) {
+            string adj1 = it->first;
+            int weight1 = it->second;
+
+            if(weight1 > weight) {
+                weight = weight1;
+                adj = adj1;
+            }
+
+            if(dist[adj1] > dist[vertex] + weight1) {
+                dist[adj1] = dist[vertex] + weight1;
+                pq.push(make_pair(dist.at(adj), adj));
+            }
+        }
+        vector<pair<string, unsigned>> tmp;
+        tmp.push_back(make_pair(adj, weight));
+        shrt.insert(make_pair(vertex, tmp));
+
+        if(vertex == end) {
+            valid = true;
+        }
+
+    }
+
+    //What if path is not valid? Then what do I return?
+    return shrt;
+}
+
+
+vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+    string vertex = start;
+    vector<string> result;
+    result.push_back(start);
+    while(vertex != end) {
+        vertex = adjMatrix1[vertex].at(0).first;
+        result.push_back(vertex);
+    }
+    return result;
+}
+
+vector<vector<string> Graph::yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K)
+{
+    map<string, vector<pair<string, unsigned>>> temp1 = adjList;
+    vector<vector<string>> final;
+    vector<vector<string>> temp;
+
+    temp.push_back(shortestPath(adjList, start, end));
+    for (unsigned k = 1; k < K; k++)
     {
-        for (int j = 0; j < (i -> second).size(); j++)
+        for (unsigned i = 0; i < temp[k-1].size()-2; i++)
         {
+            string spurNode = temp[k-1][i];
+            vector<string> rootPath;
+            for (unsigned l = 0; l < i; l++)
+            {
+                rootPath.push_back(temp[k-1][l]);
+            }
 
+            for (unsigned j = 0; j < temp.size(); j++)
+            {
+                vector<string> rootPath1;
+                for (unsigned l = 0; l < i; l++)
+                {
+                    rootPath1.push_back(temp[j][l]);
+                }
+
+                if (rootPath == rootPath1)
+                {
+                    temp1 = removeEdge(temp1, temp.at(i), temp.at(i+1));
+                }
+            }
+
+            for (int p = 0; p < rootPath.size(); p++)
+            {
+                if (rootPath[p] != spurNode)
+                {
+
+                }
+            }
+
+            vector<string> spurPath = shortestPath(temp, spurNode, end);
+            vector<string> totalPath;
+            totalPath.insert(totalPath.end(), rootPath.begin(), rootPath.end());
+            totalPath.insert(totalPath.end(), spurPath.begin(), spurPath.end());
+
+            int checker = 0;
+            for (int i = 0; i < final.size(); i++)
+            {
+                if (final[i] == totalPath)
+                {
+                    checker = 1;
+                }
+            }
+
+            if (checker == 0)
+            {
+                final.push_back(totalPath);
+            }
+
+            temp1 = adjList;
+        }
+
+        if (final.empty())
+        {
+            break;
+        }
+
+        finalSorter(final);
+        final[k] = temp[0];
+        temp.erase(temp.begin());
+    }
+}
+
+map<string, vector<pair<string, unsigned>>> removeEdge(map<string, vector<pair<string, unsigned>>> temp, string parent, string child)
+{
+    for (auto i = temp.begin(); i < temp.end(); ++i)
+    {
+        if ((temp.at(i))->first == (temp.at(parent))->first)
+        {
+            (temp.at(i))->second = std::numeric_limits<unsigned>::max();
         }
     }
 }
 
-
-map<string, pair<string, unsigned>> shortestPath(map<string, pair<string, unsigned>> adjMatrix, string start) {
-    map<string, int> cost; 
-    map<string, string> prev; 
-
-    map<string, pair<string, unsigned>> short; 
-
-    for(auto it = adjMatrix.begin(); it != adjMatrix.end(); it++) {
-        cost.pair_insert(it->first, -1000000);
-        cost.pair_insert(it->first, NULL);
+vector<vector<string>> finalSorter(vector<vector<string>> temp)
+{
+    vector<vector<string>> temp89;
+    while(!temp.empty())
+    {
+        unsigned len = temp[0].size();
+        unsigned index = 0;
+        for (int i = 1; i < temp.size(); i++)
+        {
+            if (temp[i].size() < len)
+            {
+                len = temp[i].size();
+                index = i;
+            }
+        }
+        temp89.push_back(temp[index]);
+        temp.erase(temp.begin()+index);
     }
-    cost[start] = 0; 
-
-    
-
 }
-
