@@ -24,7 +24,12 @@ public:
     
     map<string, vector<pair<string, unsigned>>> shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end);
 
+
     vector<string> convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end); 
+    map<string, pair<string, unsigned>> shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix, string start); 
+    vector<vector<string>> finalSorter(vector<vector<string>> temp);\
+    map<string, vector<pair<string, unsigned>>> removeEdge(map<string, vector<pair<string, unsigned>>> temp, string parent, string child);
+    vector<vector<string> yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K);
 
 
 private:
