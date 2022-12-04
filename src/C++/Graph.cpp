@@ -16,8 +16,10 @@ void Graph::buildGraph() {
     vector<vector<string> > vec;
     //map<string, vector<pair<string, unsigned>>> adjMatrix;
 
+    /*
     fstream fin;
     fin.open(R"(C:\Users\vedet\OneDrive\Desktop\CS225\final-project\CS225-Final-Project\src\Python Webscraping\Dataset.csv)", ios::in);
+
 
     while(!fin.eof()){
         vector<string> graphNode;
@@ -31,19 +33,23 @@ void Graph::buildGraph() {
         }
         vec.push_back(graphNode);
     }
+    */
+    //Parent Link, Parent Title, Child Link, Child Title, Weights
+    vector<string> temp = {"0", "Paris", "0", "pop", "5"}; /// Hi mr Aditya
+    vector<string> temp3 = {"0", "pop", "0", "Kys", "5"};/// Hi mr Aditya
+    vector<string> temp1 = {"0", "Kys", "0", "France", "4"};
+    //vector<string> temp2 = {"0", "Kyr", "0", "France", "7"};/// Hi mr Aditya
+    vec.push_back(temp); /// Hi mr Aditya
+    vec.push_back(temp1);/// Hi mr Aditya
+    //vec.push_back(temp2);/// Hi mr Aditya
+    vec.push_back(temp3);/// Hi mr Aditya
 
-    cout<<"jausdndbndjdbnjdnjdnjdnjd"<<endl;
-    for (int i = 0; i < vec.size(); i++)
-    {
-        nameInfo[vec[i][1]].push_back(vec[i][3]);
-        linkInfo[vec[i][0]].push_back(vec[i][2]);
-    }
-
+/// Hi mr Aditya
     for (unsigned j = 0; j < vec.size(); j++)
     {
-        pair<string, unsigned> temp;
-        temp.first = vec[j][3];
-        temp.second = (unsigned)stoi(vec[j][4]);
+        pair<string, unsigned> temp;/// Hi mr Aditya
+        temp.first = vec[j][3];/// Hi mr Aditya/// Hi mr Aditya
+        temp.second = (unsigned)stoi(vec[j][4]);/// Hi mr Aditya
         adjMatrix[vec[j][1]].push_back(temp);
     }
 }
@@ -97,23 +103,37 @@ vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned> > >
         shrt.insert(make_pair(vertex, tmp));
 
         if(vertex == end) {
-            valid = true;
+            valid = true;/// Hi mr Aditya
         }
 
-
+/// Hi mr Aditya/// Hi mr Aditya
     }
 
     //what if path is not valid? What do we return?
-    return convertMaptoVector(shrt, start, end);
 
-vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end)
+{
     string vertex = start;
     vector<string> result;
-    result.push_back(start);
-    while(vertex != end) {
-        vertex = adjMatrix1[vertex].at(0).first;
+    //result.push_back(start);
+    //result.push_back(((adjMatrix1.at(vertex)).at(0)).first);
+    //vertex = ((adjMatrix1.at(vertex)).at(0)).first;
+    //result.push_back(((adjMatrix1.at(vertex)).at(0)).first);
+    //result.push_back(end);
+
+    std::cout<< "Length of Map " << adjMatrix1.size() << endl;
+
+    for(auto itr = adjMatrix1.begin(); itr!=adjMatrix1.end(); ++itr){
+        std::cout << "Adj "<< itr->first << endl;
+    }
+
+    /*
+    while(vertex!= end) {
+        //vector<string> child = adjMatrix1[vertex];
+        vertex = (adjMatrix1[vertex].at(0)).first;
         result.push_back(vertex);
     }
+     */
     return result;
 }
 
@@ -128,6 +148,7 @@ vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > 
     temp.push_back(shortestPath(adjList, start, end));
     for (unsigned k = 1; k < K; k++)
     {
+        cout<<"hi";
         for (unsigned i = 0; i < temp[k-1].size()-2; i++)
         {
             string spurNode = temp[k-1][i];
@@ -145,21 +166,18 @@ vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > 
                     rootPath1.push_back(temp[j][l]);
                 }
 
-                if (rootPath == rootPath1)
+                if (equal(rootPath.begin(), rootPath.end(), rootPath1.begin()))
                 {
-                    temp1 = removeEdge(temp1, temp[j][i], temp[j][i+1]);
+                    temp1 = Graph::removeEdge(temp1, temp[j][i], temp[j][i+1]);
                 }
             }
 
-            for (int p = 0; p < rootPath.size(); p++)
+            for (int p = 0; p < rootPath.size()-1; p++)
             {
-                if (rootPath[p] != spurNode)
-                {
-                    
-                }
+                temp1.erase(rootPath[i]);
             }
 
-            vector<string> spurPath = shortestPath(temp1, spurNode, end);
+            vector<string> spurPath = Graph::shortestPath(temp1, spurNode, end);
             vector<string> totalPath;
             totalPath.insert(totalPath.end(), rootPath.begin(), rootPath.end());
             totalPath.insert(totalPath.end(), spurPath.begin(), spurPath.end());
@@ -167,7 +185,7 @@ vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > 
             int checker = 0;
             for (unsigned i = 0; i < final.size(); i++)
             {
-                if (final[i] == totalPath)
+                if (equal(final[i].begin(), final[i].end(), totalPath.begin()))
                 {
                     checker = 1;
                 }
@@ -186,7 +204,7 @@ vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > 
             break;
         }
 
-        finalSorter(final);
+        Graph::finalSorter(final);
         final[k] = temp[0];
         temp.erase(temp.begin());
     }
@@ -194,7 +212,7 @@ vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > 
     return final;
 }
 
-map<string, vector<pair<string, unsigned> > > removeEdge(map<string, vector<pair<string, unsigned> > > temp, string parent, string child)
+map<string, vector<pair<string, unsigned> > > Graph::removeEdge(map<string, vector<pair<string, unsigned> > > temp, string parent, string child)
 {
     for (auto i = temp.begin(); i != temp.end(); ++i)
     {
@@ -204,7 +222,7 @@ map<string, vector<pair<string, unsigned> > > removeEdge(map<string, vector<pair
             {
                 if (i->second[j].first == child)
                 {
-                    i->second[j].second = std::numeric_limits<unsigned>::max();
+                    i->second[j].second = 99;
                 }
             }
         }
@@ -213,7 +231,7 @@ map<string, vector<pair<string, unsigned> > > removeEdge(map<string, vector<pair
     return temp;
 }
 
-vector<vector<string> > finalSorter(vector<vector<string> > temp)
+vector<vector<string> > Graph::finalSorter(vector<vector<string> > temp)
 {
     vector<vector<string> > temp89;
     while(!temp.empty())
@@ -231,4 +249,6 @@ vector<vector<string> > finalSorter(vector<vector<string> > temp)
         temp89.push_back(temp[index]);
         temp.erase(temp.begin()+index);
     }
+
+    return temp89;
   }

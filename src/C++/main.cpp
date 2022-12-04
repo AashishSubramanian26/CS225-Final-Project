@@ -9,12 +9,16 @@ using namespace std;
 
 int main()
 {
-    Graph *temp = new Graph();
-    temp->buildGraph();
-    vector<string> temp89 = temp->shortestPath(temp->getMap(), "Paris", "France");
-    for (int i = 0; i < temp89.size(); i++)
-    {
-        cout<<temp89[i];
+    Graph temp = Graph();
+    temp.buildGraph();
+    //vector<string> temp89 = temp.shortestPath(temp.getMap(), "Paris", "France");
+    map<string, vector<pair<string, unsigned>>> temp88 = temp.getMap();
+
+    for(auto itr = temp88.begin(); itr!=temp88.end(); ++itr){
+        std::cout << "Adj "<< itr->first << endl;
+        cout<<itr->second[0].first;
     }
+    
+    //vector<vector<string>> temp2 = temp.yens(temp.getMap(), "Paris", "France", 500);
     return 1;
 }
