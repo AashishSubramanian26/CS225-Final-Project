@@ -39,7 +39,7 @@ void Graph::buildGraph() {
         linkInfo[vec[i][0]].push_back(vec[i][2]);
     }
 
-    for (unsigned j = 0; i < vec.size(); j++)
+    for (unsigned j = 0; j < vec.size(); j++)
     {
         pair<string, unsigned> temp;
         temp.first = vec[j][3];
