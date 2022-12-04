@@ -5,11 +5,12 @@
 #include <fstream>
 #include <sstream>
 #include "Graph.h"
+
 using namespace std;
 
-void Graph::buildGraph()  {
-    map<string, vector<string> > nameInfo;
-    map<string, vector<string> > linkInfo;
+void Graph::buildGraph() {
+    map<string, vector<string>> nameInfo;
+    map<string, vector<string>> linkInfo;
 
 //CSV Input
     vector<vector<string> > vec;
@@ -108,12 +109,23 @@ vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned> > >
             valid = true;
         }
 
+
     }
 
     //what if path is not valid? What do we return?
     return convertMaptoVector(shrt, start, end);
 
+vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+    string vertex = start;
+    vector<string> result;
+    result.push_back(start);
+    while(vertex != end) {
+        vertex = adjMatrix1[vertex].at(0).first;
+        result.push_back(vertex);
+    }
+    return result;
 }
+
 
 
 vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > > adjList, string start, string end, int K)
@@ -121,7 +133,7 @@ vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > 
     map<string, vector<pair<string, unsigned> > > temp1 = adjList;
     vector<vector<string> > final;
     vector<vector<string> > temp;
-
+    
     temp.push_back(shortestPath(adjList, start, end));
     for (unsigned k = 1; k < K; k++)
     {
@@ -162,7 +174,7 @@ vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > 
             totalPath.insert(totalPath.end(), spurPath.begin(), spurPath.end());
 
             int checker = 0;
-            for (int i = 0; i < final.size(); i++)
+            for (unsigned i = 0; i < final.size(); i++)
             {
                 if (final[i] == totalPath)
                 {
@@ -177,7 +189,7 @@ vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > 
 
             temp1 = adjList;
         }
-        
+
         if (final.empty())
         {
             break;
@@ -187,6 +199,8 @@ vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > 
         final[k] = temp[0];
         temp.erase(temp.begin());
     }
+
+    return final;
 }
 
 map<string, vector<pair<string, unsigned> > > removeEdge(map<string, vector<pair<string, unsigned> > > temp, string parent, string child)
@@ -226,4 +240,4 @@ vector<vector<string> > finalSorter(vector<vector<string> > temp)
         temp89.push_back(temp[index]);
         temp.erase(temp.begin()+index);
     }
-}
+  }

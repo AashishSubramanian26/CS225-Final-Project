@@ -21,7 +21,7 @@ using namespace std;
 class Graph {
 public:
     void buildGraph();
-    
+   
     vector<string> convertMaptoVector(map<string, vector<pair<string, unsigned> > > adjMatrix1, string start, string end);
 
     vector<string> shortestPath(map<string, vector<pair<string, unsigned> > > adjMatrix1, string start, string end);
@@ -36,9 +36,11 @@ public:
 
 private:
 
+
     map<string, vector<pair<string, unsigned> > > adjMatrix;
     //pair.second is the distance value
     priority_queue <pair<int, string>, vector<pair<int, string> >, greater<pair<int, string> > > pq;
+
 };
 
 #endif //FINAL_PROJECT_GRAPH_H
