@@ -21,24 +21,26 @@ using namespace std;
 class Graph {
 public:
     void buildGraph();
-    
-    vector<string> convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end);
+   
+    vector<string> convertMaptoVector(map<string, vector<pair<string, unsigned> > > adjMatrix1, string start, string end);
 
-    vector<string> shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end);
-    map<string, vector<pair<string, unsigned>>> getMap();
+    vector<string> shortestPath(map<string, vector<pair<string, unsigned> > > adjMatrix1, string start, string end);
+    map<string, vector<pair<string, unsigned> > > getMap();
 
-    vector<vector<string>> finalSorter(vector<vector<string>> temp);
+    vector<vector<string> > finalSorter(vector<vector<string> > temp);
 
-    map<string, vector<pair<string, unsigned>>> removeEdge(map<string, vector<pair<string, unsigned>>> temp, string parent, string child);
+    map<string, vector<pair<string, unsigned> > > removeEdge(map<string, vector<pair<string, unsigned> > > temp, string parent, string child);
 
-    vector<vector<string>> yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K);
+    vector<vector<string> > yens(map<string, vector<pair<string, unsigned> > > adjList, string start, string end, int K);
 
 
 private:
 
-    map<string, vector<pair<string, unsigned>>> adjMatrix;
+
+    map<string, vector<pair<string, unsigned> > > adjMatrix;
     //pair.second is the distance value
-    priority_queue <pair<int, string>, vector<pair<int, string>>, greater<pair<int, string>>> pq;
+    priority_queue <pair<int, string>, vector<pair<int, string> >, greater<pair<int, string> > > pq;
+
 };
 
 #endif //FINAL_PROJECT_GRAPH_H

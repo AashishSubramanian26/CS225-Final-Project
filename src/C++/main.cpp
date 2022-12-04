@@ -1,21 +1,20 @@
+#include "Graph.h"
+#include "Graph.cpp"
+using namespace std;
+#include <cstdio>
 #include <vector>
 #include "Graph.h"
+
+
 
 int main()
 {
     Graph *temp = new Graph();
-    std::cout<<"Hello";
-    /*
-    vector<string> temp1 = temp -> shortestPath(temp->getMap(), "Paris", "France");
-    std::cout<<"Hello";
-    for (unsigned i = 0; i < temp1.size(); i++)
+    temp->buildGraph();
+    vector<string> temp89 = temp->shortestPath(temp->getMap(), "Paris", "France");
+    for (int i = 0; i < temp89.size(); i++)
     {
-        cout<<temp1[i];
+        cout<<temp89[i];
     }
-    */
-    return 0;
+    return 1;
 }
-
-
-
-
