@@ -62,10 +62,13 @@ map<string, vector<pair<string, unsigned> > > Graph::getMap()
     return adjMatrix;
 }
 
-vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned> > > adjMatrix1, string start, string end) {
-    map<string, int> dist;
-    map<string, string> prev;
-    map<string, vector<pair<string, unsigned> > > shrt;
+vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+
+    //make sure weight is right. Djikstra's uses a min-heap priority queue
+    map<string, int> dist; 
+    map<string, string> prev; 
+    map<string, vector<pair<string, unsigned>>> shrt; 
+
 
     for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
         pair<string, int> temp(it->first, -10000000);
@@ -111,6 +114,13 @@ vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned> > >
 
 
     }
+
+
+    //what if path is not valid? What do we return?
+    return convertMaptoVector(shrt, start, end); 
+    
+}
+
 
     //what if path is not valid? What do we return?
     return convertMaptoVector(shrt, start, end);
