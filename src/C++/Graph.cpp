@@ -4,9 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-//#include <>
 #include "Graph.h"
-
 using namespace std;
 
 void Graph::buildGraph()  {
@@ -14,7 +12,7 @@ void Graph::buildGraph()  {
     map<string, vector<string> > linkInfo;
 
 //CSV Input
-    vector<vector<string>> vec;
+    vector<vector<string> > vec;
     //map<string, vector<pair<string, unsigned>>> adjMatrix;
 
     fstream fin;
@@ -33,7 +31,7 @@ void Graph::buildGraph()  {
         vec.push_back(graphNode);
     }
 
-
+    cout<<"jausdndbndjdbnjdnjdnjdnjd"<<endl;
     for (int i = 0; i < vec.size(); i++)
     {
         nameInfo[vec[i][1]].push_back(vec[i][3]);
@@ -58,15 +56,15 @@ void Graph::buildGraph()  {
     }
 }
 
-map<string, vector<pair<string, unsigned>>> Graph::getMap()
+map<string, vector<pair<string, unsigned> > > Graph::getMap()
 {
     return adjMatrix;
 }
 
-vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned> > > adjMatrix1, string start, string end) {
     map<string, int> dist;
     map<string, string> prev;
-    map<string, vector<pair<string, unsigned>>> shrt;
+    map<string, vector<pair<string, unsigned> > > shrt;
 
     for(auto it = adjMatrix1.begin(); it != adjMatrix1.end(); it++) {
         pair<string, int> temp(it->first, -10000000);
@@ -102,7 +100,7 @@ vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> a
                 pq.push(make_pair(dist.at(adj), adj));
             }
         }
-        vector<pair<string, unsigned>> tmp;
+        vector<pair<string, unsigned> > tmp;
         tmp.push_back(make_pair(adj, weight));
         shrt.insert(make_pair(vertex, tmp));
 
@@ -118,11 +116,11 @@ vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> a
 }
 
 
-vector<vector<string>> Graph::yens(map<string, vector<pair<string, unsigned>>> adjList, string start, string end, int K)
+vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > > adjList, string start, string end, int K)
 {
-    map<string, vector<pair<string, unsigned>>> temp1 = adjList;
-    vector<vector<string>> final;
-    vector<vector<string>> temp;
+    map<string, vector<pair<string, unsigned> > > temp1 = adjList;
+    vector<vector<string> > final;
+    vector<vector<string> > temp;
 
     temp.push_back(shortestPath(adjList, start, end));
     for (unsigned k = 1; k < K; k++)
@@ -158,7 +156,7 @@ vector<vector<string>> Graph::yens(map<string, vector<pair<string, unsigned>>> a
                 }
             }
 
-            vector<string> spurPath = shortestPath(temp, spurNode, end);
+            vector<string> spurPath = shortestPath(temp1, spurNode, end);
             vector<string> totalPath;
             totalPath.insert(totalPath.end(), rootPath.begin(), rootPath.end());
             totalPath.insert(totalPath.end(), spurPath.begin(), spurPath.end());
@@ -191,9 +189,9 @@ vector<vector<string>> Graph::yens(map<string, vector<pair<string, unsigned>>> a
     }
 }
 
-map<string, vector<pair<string, unsigned> > > removeEdge(map<string, vector<pair<string, unsigned>>> temp, string parent, string child)
+map<string, vector<pair<string, unsigned> > > removeEdge(map<string, vector<pair<string, unsigned> > > temp, string parent, string child)
 {
-    for (auto i = temp.begin(); i < temp.end(); ++i)
+    for (auto i = temp.begin(); i != temp.end(); ++i)
     {
         if ((i->first) == parent)
         {   
@@ -210,9 +208,9 @@ map<string, vector<pair<string, unsigned> > > removeEdge(map<string, vector<pair
     return temp;
 }
 
-vector<vector<string>> finalSorter(vector<vector<string>> temp)
+vector<vector<string> > finalSorter(vector<vector<string> > temp)
 {
-    vector<vector<string>> temp89;
+    vector<vector<string> > temp89;
     while(!temp.empty())
     {
         unsigned len = temp[0].size();
