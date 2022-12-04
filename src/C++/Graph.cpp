@@ -79,7 +79,7 @@ vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> a
         pq.pop();
 
         string adj = ""; 
-        int weight = 100000000;
+        int weight = 0;
         for(auto it = adjMatrix1[vertex].begin(); it != adjMatrix1[vertex].end(); it++) {
             string adj1 = it->first; 
             int weight1 = it->second; 
