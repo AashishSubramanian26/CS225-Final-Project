@@ -39,21 +39,12 @@ void Graph::buildGraph() {
         linkInfo[vec[i][0]].push_back(vec[i][2]);
     }
 
-    for (auto i = nameInfo.begin(); i != nameInfo.end(); ++i)
+    for (unsigned j = 0; j < vec.size(); j++)
     {
-        for (unsigned j = 0; j < vec.size(); j++)
-        {
-            if ((i -> first) == vec[j][1])
-            {
-                if (find((i->second).begin(), (i->second).end(), vec[j][3]) != (i->second).end())
-                {
-                    pair<string, unsigned> temp;
-                    temp.first = vec[j][3];
-                    temp.second = (unsigned)stoi(vec[j][4]);
-                    adjMatrix[vec[j][1]].push_back(temp);
-                }
-            }
-        }
+        pair<string, unsigned> temp;
+        temp.first = vec[j][3];
+        temp.second = (unsigned)stoi(vec[j][4]);
+        adjMatrix[vec[j][1]].push_back(temp);
     }
 }
 
