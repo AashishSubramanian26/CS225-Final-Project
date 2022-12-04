@@ -36,7 +36,8 @@ private:
 
     map<string, vector<pair<string, unsigned>>> adjMatrix;
     //pair.second is the distance value
-    priority_queue <pair<int, string>, vector<pair<int, string>>, greater<pair<int, string>>> pq;
+    //Changed to maxheap because the bigger the weight the better
+    priority_queue <pair<int, string>> pq;
 };
 
 #endif //FINAL_PROJECT_GRAPH_H

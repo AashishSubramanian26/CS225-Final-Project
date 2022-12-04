@@ -54,6 +54,8 @@ void Graph::buildGraph() {
 }
 
 vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end) {
+
+    //make sure weight is right. Djikstra's uses a min-heap priority queue
     map<string, int> dist; 
     map<string, string> prev; 
     map<string, vector<pair<string, unsigned>>> shrt; 
@@ -77,7 +79,7 @@ vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> a
         pq.pop();
 
         string adj = ""; 
-        int weight = 0;
+        int weight = 100000000;
         for(auto it = adjMatrix1[vertex].begin(); it != adjMatrix1[vertex].end(); it++) {
             string adj1 = it->first; 
             int weight1 = it->second; 
