@@ -35,8 +35,8 @@ void Graph::buildGraph() {
     }
     */
     //Parent Link, Parent Title, Child Link, Child Title, Weights
-    vector<string> temp = {"0", "Paris", "0", "pop", "5"}; /// Hi mr Aditya
-    vector<string> temp3 = {"0", "pop", "0", "Kys", "5"};/// Hi mr Aditya
+    vector<string> temp = {"0", "Paris", "0", "pop", "5"};
+    vector<string> temp3 = {"0", "pop", "0", "Kys", "5"};
     vector<string> temp1 = {"0", "Kys", "0", "France", "4"};
     //vector<string> temp2 = {"0", "Kyr", "0", "France", "7"};/// Hi mr Aditya
     vec.push_back(temp); /// Hi mr Aditya
@@ -115,25 +115,11 @@ vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigne
 {
     string vertex = start;
     vector<string> result;
-    //result.push_back(start);
-    //result.push_back(((adjMatrix1.at(vertex)).at(0)).first);
-    //vertex = ((adjMatrix1.at(vertex)).at(0)).first;
-    //result.push_back(((adjMatrix1.at(vertex)).at(0)).first);
-    //result.push_back(end);
 
-    std::cout<< "Length of Map " << adjMatrix1.size() << endl;
-
-    for(auto itr = adjMatrix1.begin(); itr!=adjMatrix1.end(); ++itr){
-        std::cout << "Adj "<< itr->first << endl;
-    }
-
-    /*
     while(vertex!= end) {
-        //vector<string> child = adjMatrix1[vertex];
         vertex = (adjMatrix1[vertex].at(0)).first;
         result.push_back(vertex);
     }
-     */
     return result;
 }
 

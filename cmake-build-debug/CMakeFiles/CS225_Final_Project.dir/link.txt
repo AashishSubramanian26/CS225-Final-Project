@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/CS225_Final_Project.dir/src/C++/main.cpp.o -o CS225_Final_Project 

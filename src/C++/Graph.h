@@ -21,13 +21,10 @@ using namespace std;
 class Graph {
 public:
     void buildGraph();
-<<<<<<< Updated upstream
-   
-=======
-    
+
+
     vector<string> shortestPath(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end);
 
->>>>>>> Stashed changes
     vector<string> convertMaptoVector(map<string, vector<pair<string, unsigned> > > adjMatrix1, string start, string end);
 
     vector<string> shortestPath(map<string, vector<pair<string, unsigned> > > adjMatrix1, string start, string end);
