@@ -1,8 +1,0 @@
-C:\WINDOWS\system32\wsl.exe --distribution cs225-container --exec /bin/bash -c "export CMAKE_COLOR_DIAGNOSTICS=ON && export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/c/Users/vedet/OneDrive/Desktop/CS225/final-project/CS225-Final-Project/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' -S /mnt/c/Users/vedet/OneDrive/Desktop/CS225/final-project/CS225-Final-Project -B /mnt/c/Users/vedet/OneDrive/Desktop/CS225/final-project/CS225-Final-Project/cmake-build-debug"
-CMake Error at CMakeLists.txt:14:
-  Parse error.  Expected a command name, got unquoted argument with text
-  "CXX=clang++".
-
-
--- Configuring incomplete, errors occurred!
-See also "/mnt/c/Users/vedet/OneDrive/Desktop/CS225/final-project/CS225-Final-Project/cmake-build-debug/CMakeFiles/CMakeOutput.log".
