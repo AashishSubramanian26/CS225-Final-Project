@@ -305,39 +305,3 @@ vector<vector<string>> Graph::finalSorter(vector<vector<string>> temp)
     }
     return temp89;
 }
-
-std::string Graph::file_to_string(const string &filename) {
-    std::ifstream text(filename);
-
-    std::stringstream strStream;
-    if (text.is_open()) {
-        strStream << text.rdbuf();
-    }
-    return strStream.str();
-}
-
-int Graph::SplitString(const string &str1, char sep, vector<std::string> &fields) {
-    std::string str = str1;
-    std::string::size_type pos;
-    while((pos=str.find(sep)) != std::string::npos) {
-        fields.push_back(str.substr(0,pos));
-        str.erase(0,pos+1);
-    }
-    fields.push_back(str);
-    return fields.size();
-}
-
-std::string Graph::TrimRight(const string &str) {
-    std::string tmp = str;
-    return tmp.erase(tmp.find_last_not_of(" ") + 1);
-}
-
-std::string Graph::TrimLeft(const string &str) {
-    std::string tmp = str;
-    return tmp.erase(0, tmp.find_first_not_of(" "));
-}
-
-std::string Graph::Trim(const string &str) {
-    std::string tmp = str;
-    return TrimLeft(TrimRight(str));
-}
