@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/mnt/c/Users/Aditya/Documents/CS 225/CS225-Final-Project-main/src"
+CXX_INCLUDES = -I"/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src"
 
 CXX_FLAGS = -g -std=gnu++14
 

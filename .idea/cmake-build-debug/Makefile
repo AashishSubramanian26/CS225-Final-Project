@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Aditya/Documents/CS 225/CS225-Final-Project-main"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Aditya/Documents/CS 225/CS225-Final-Project-main/cmake-build-debug"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Aditya/Documents/CS 225/CS225-Final-Project-main/cmake-build-debug/CMakeFiles" "/mnt/c/Users/Aditya/Documents/CS 225/CS225-Final-Project-main/cmake-build-debug//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/CMakeFiles" "/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Aditya/Documents/CS 225/CS225-Final-Project-main/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -113,28 +113,55 @@ preinstall/fast:
 
 # clear depends
 depend:
+	$(CMAKE_COMMAND) -P "/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/CMakeFiles/VerifyGlobs.cmake"
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named CS225_Final_Project
+# Target rules for targets named test
 
 # Build rule for target.
-CS225_Final_Project: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CS225_Final_Project
-.PHONY : CS225_Final_Project
+test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-CS225_Final_Project/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS225_Final_Project.dir/build.make CMakeFiles/CS225_Final_Project.dir/build
-.PHONY : CS225_Final_Project/fast
+test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+#=============================================================================
+# Target rules for targets named main
+
+# Build rule for target.
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
+
+# fast build rule for target.
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
+
+#=============================================================================
+# Target rules for targets named src
+
+# Build rule for target.
+src: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src
+.PHONY : src
+
+# fast build rule for target.
+src/fast:
+	$(MAKE) $(MAKESILENT) -f src/C++/CMakeFiles/src.dir/build.make src/C++/CMakeFiles/src.dir/build
+.PHONY : src/fast
 
 src/C++/main.o: src/C++/main.cpp.o
 .PHONY : src/C++/main.o
 
 # target to build an object file
 src/C++/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS225_Final_Project.dir/build.make CMakeFiles/CS225_Final_Project.dir/src/C++/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/C++/main.cpp.o
 .PHONY : src/C++/main.cpp.o
 
 src/C++/main.i: src/C++/main.cpp.i
@@ -142,7 +169,7 @@ src/C++/main.i: src/C++/main.cpp.i
 
 # target to preprocess a source file
 src/C++/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS225_Final_Project.dir/build.make CMakeFiles/CS225_Final_Project.dir/src/C++/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/C++/main.cpp.i
 .PHONY : src/C++/main.cpp.i
 
 src/C++/main.s: src/C++/main.cpp.s
@@ -150,7 +177,7 @@ src/C++/main.s: src/C++/main.cpp.s
 
 # target to generate assembly for a file
 src/C++/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS225_Final_Project.dir/build.make CMakeFiles/CS225_Final_Project.dir/src/C++/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/C++/main.cpp.s
 .PHONY : src/C++/main.cpp.s
 
 src/Tests/TestingData.o: src/Tests/TestingData.cpp.o
@@ -158,7 +185,7 @@ src/Tests/TestingData.o: src/Tests/TestingData.cpp.o
 
 # target to build an object file
 src/Tests/TestingData.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS225_Final_Project.dir/build.make CMakeFiles/CS225_Final_Project.dir/src/Tests/TestingData.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Tests/TestingData.cpp.o
 .PHONY : src/Tests/TestingData.cpp.o
 
 src/Tests/TestingData.i: src/Tests/TestingData.cpp.i
@@ -166,7 +193,7 @@ src/Tests/TestingData.i: src/Tests/TestingData.cpp.i
 
 # target to preprocess a source file
 src/Tests/TestingData.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS225_Final_Project.dir/build.make CMakeFiles/CS225_Final_Project.dir/src/Tests/TestingData.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Tests/TestingData.cpp.i
 .PHONY : src/Tests/TestingData.cpp.i
 
 src/Tests/TestingData.s: src/Tests/TestingData.cpp.s
@@ -174,7 +201,7 @@ src/Tests/TestingData.s: src/Tests/TestingData.cpp.s
 
 # target to generate assembly for a file
 src/Tests/TestingData.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS225_Final_Project.dir/build.make CMakeFiles/CS225_Final_Project.dir/src/Tests/TestingData.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Tests/TestingData.cpp.s
 .PHONY : src/Tests/TestingData.cpp.s
 
 # Help Target
@@ -185,7 +212,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... CS225_Final_Project"
+	@echo "... main"
+	@echo "... src"
+	@echo "... test"
 	@echo "... src/C++/main.o"
 	@echo "... src/C++/main.i"
 	@echo "... src/C++/main.s"
@@ -203,6 +232,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	$(CMAKE_COMMAND) -P "/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/CMakeFiles/VerifyGlobs.cmake"
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
