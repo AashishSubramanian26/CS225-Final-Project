@@ -9,6 +9,7 @@
 
 using namespace std;
 
+
 void Graph::buildGraph() {
     map<string, vector<string>> nameInfo;
     map<string, vector<string>> linkInfo;
@@ -25,41 +26,35 @@ void Graph::buildGraph() {
         vector<string> graphNode;
         string word;
         stringstream lineStream (line);
+        int wordCount = 0;
         while(getline(lineStream, word, ',')){
-            string finalWord;
-            if(wordCount==4){
-                finalWord = word;
-            }
-            else if(wordCount==0){
-                finalWord = word.substr(1, word.size() -2);
-                //finalWord = "ht".append(finalWord);
-            }
-            else {
-                finalWord = word.substr(2, word.size()-3);
-            }
+            string finalWord = word;
             graphNode.push_back(finalWord);
-
             wordCount++;
         }
-        if(fileCounter!=0) {
+        if(fileCounter!=0 ) {
             vec.push_back(graphNode);
         }
         fileCounter++;
     }
+
     vector<vector<string>>::iterator it1;
     for (it1 = vec.begin(); it1 != vec.end(); ++it1){
-        if(it1->size()!=4){
-            vec.erase(it1, it1);
+        if(it1->size()!=5){
+            vec.erase(it1, it1+1);
         }
     }
-    /*
+
+
     for(int i=0; i<vec.size(); i++){
         for(int j =0; j<vec[i].size(); j++){
-            cout<< vec[i][j]<< " | ";
+           std::cout<< vec[i][j]<< " | ";
         }
+        //cout << vec[i][4];
         cout<<endl;
     }
-*/
+
+
     /*
     string temp = file_to_string("(C:\\Users\\vedet\\OneDrive\\Desktop\\CS225\\final-project\\CS225-Final-Project\\src\\CSV\\smallTest.csv)");
     vector<string> temp1;
