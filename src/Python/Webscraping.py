@@ -53,10 +53,12 @@ class WebScrape():
             for link in soup.find_all('a'):
                 # These if statments remove outliers that will mess up the format of our output because some links have ":" or "?" which aren't proper links
                 # We will only be accessing the clean links
-                if ((link.get('title') is not None) and (':' not in link.get('href'))):
+                if ((link.get('title') is not None) and (':' not in link.get('href')) and (',' not in link.get('href'))):
                     if ((':' not in link.get('title')) and ('?' not in link.get('href'))):
                         if (('Main_Page' not in link.get('href')) and ('identifier' not in link.get('title')) and (
-                                'content' not in link.get('title'))):
+                                'content' not in link.get('title')) and (',' not in link.get('title'))):
+                            if((',' in link.get('title'))):
+                                continue
                             # All of this will be added to the CSV file so our C++ will be able to use it
                             self.parentLinks.append(parentLink) #We are continously adding the parentLink to the list
                             self.parentName.append(parentTitle) #We are continously adding the parentTitle to the list
@@ -78,7 +80,7 @@ class WebScrape():
         while(index < len(self.parentName)):
             if (index > len(self.parentName) - 1):
                 break
-            if ("%" in self.parentLinks[index] or "%" in self.childLinks[index] or "wikimedia" in self.childLinks[index]):
+            if ("%" in self.parentLinks[index] or "%" in self.childLinks[index] or "wikimedia" in self.childLinks[index] or "\"" in self.parentName[index] or "\"" in self.childName[index]):
                 self.parentLinks.pop(index)
                 self.parentName.pop(index)
                 self.childLinks.pop(index)
