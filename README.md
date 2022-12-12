@@ -8,4 +8,4 @@ The code is contained in the src folder. An example of how to use the Graph clas
 
 To run the code, follow a similar process as the mps by first making a build directory. Cd into that directory and call cmake .. 
 
-Next, running the command make will make the project. To run main, call ./main. Similarly, to run the test cases, run ./test. 
+Next, running the command make will make the project. To run main, call ./main. Similarly, to run the test cases, run ./test. Latly, the main file can call two different graph making methods i.e. the smaller dataset that we created without webscraping (parsing1()) for testing purposes , and the bigger webscraped dataset (parsing2()), which uses the csv file to aquire links. 
