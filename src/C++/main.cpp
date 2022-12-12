@@ -9,30 +9,29 @@ int main()
 
 
     Graph temp = Graph();
-    temp.buildGraph();
-    vector<string> temp89 = temp.shortestPath(temp.getMap(), "Paris", "Candy");
+    temp.parsing2();
+    vector<string> temp89 = temp.shortestPath(temp.getMap(), "Ladder", "Honey");
     map<string, vector<pair<string, unsigned>>> temp88 = temp.getMap();
 
+    /*
     for(auto itr = temp88.begin(); itr!=temp88.end(); ++itr){
         std::cout << "Adj "<< itr->first << endl;
         cout<<itr->second[0].first;
     }
-
+    */
 
     for (unsigned i = 0; i < temp89.size(); i++)
     {
-        cout<<temp89[i] << temp89.size();
+        cout<<temp89[i] << endl;
     }
+
     cout<<"\n";
-    vector<vector<string>> temp2 = temp.yens(temp.getMap(), "Chimney", "Egypt", 10);
-    for (unsigned i = 0; i < temp2.size(); i++)
-    {
-        for (unsigned j = 0; j < temp2[i].size(); j++)
-        {
+    vector<vector<string>> temp2 = temp.yens(temp.getMap(), "Ladder", "Honey", 10);
+    for (unsigned i = 0; i < temp2.size(); i++) {
+        for (unsigned j = 0; j < temp2[i].size(); j++) {
             cout << temp2.at(i).at(j);
         }
-        cout<<"\n";
+        cout << "\n";
     }
     return 1;
-
 }

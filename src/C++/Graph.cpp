@@ -9,6 +9,7 @@
 
 using namespace std;
 
+<<<<<<< Updated upstream
 void Graph::buildGraph() {
 
 
@@ -30,11 +31,26 @@ void Graph::buildGraph() {
 }
 
 vector<vector<string>> Graph::parsing2()
+=======
+long stoi1(const char *s)
+{
+    long i;
+    i = 0;
+    while(*s >= '0' && *s <= '9')
+    {
+        i = i * 10 + (*s - '0');
+        s++;
+    }
+    return i;
+}
+
+void Graph::parsing2()
+>>>>>>> Stashed changes
 {
     vector<vector<string> > vec;
     //map<string, vector<pair<string, unsigned>>> adjMatrix;
 
-    ifstream fin("../src/Python Webscraping/Dataset.csv");
+    ifstream fin("../src/CSV/Dataset.csv");
 
     string line;
     int fileCounter = 0;
@@ -53,27 +69,86 @@ vector<vector<string>> Graph::parsing2()
         }
         fileCounter++;
     }
+<<<<<<< Updated upstream
     for()
     /*
     for (auto it1 = vec.begin(); it1 != vec.end(); ++it1){
         if(it1->size()!=5){
             auto it2 = it1;
             vec.erase(it2);
+=======
+
+
+    for (int i = 0; i < (int) vec.size(); i++){
+        int x = 0;
+        if(vec.at(i).size()!=5 ){
+            vec.erase(vec.begin()+i);
+            continue;
+        }
+        string fifth = vec[i][4];
+        int boolCheckCharacter = 0;
+        vector<char> alphabet;
+        alphabet.push_back('a');
+        alphabet.push_back('b');
+        alphabet.push_back('c');
+        alphabet.push_back('d');
+        alphabet.push_back('e');
+        alphabet.push_back('f');
+        alphabet.push_back('g');
+        alphabet.push_back('h');
+        alphabet.push_back('i');
+        alphabet.push_back('j');
+        alphabet.push_back('k');
+        alphabet.push_back('l');
+        alphabet.push_back('m');
+        alphabet.push_back('n');
+        alphabet.push_back('o');
+        alphabet.push_back('p');
+        alphabet.push_back('q');
+        alphabet.push_back('r');
+        alphabet.push_back('s');
+        alphabet.push_back('t');
+        alphabet.push_back('u');
+        alphabet.push_back('v');
+        alphabet.push_back('w');
+        alphabet.push_back('x');
+        alphabet.push_back('y');
+        alphabet.push_back('z');
+        alphabet.push_back('.');
+        alphabet.push_back('-');
+        alphabet.push_back('+');
+        alphabet.push_back(',');
+        alphabet.push_back(';');
+        alphabet.push_back('/');
+        alphabet.push_back('\'');
+        alphabet.push_back('#');
+
+        for(int j =0 ; j< (int) alphabet.size(); j++){
+            if(fifth.find(alphabet[j])<fifth.length()){
+                boolCheckCharacter = 1;
+            }
+        }
+        //,'b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
+        if(boolCheckCharacter==1){
+            vec.erase(vec.begin()+i);
+>>>>>>> Stashed changes
         }
     }
     */
 
-    for(unsigned i=0; i<vec.size(); i++){
-        for(unsigned j =0; j<vec[i].size(); j++){
-            std::cout<< vec[i][j]<< " | ";
-        }
-        cout<<endl;
+    for (unsigned j = 0; j < vec.size(); j++)
+    {
+        pair<string, unsigned> temp;
+        temp.first = vec[j][3];
+        temp.second = (unsigned)stoi(vec[j][4]);
+        adjList[vec[j][1]].push_back(temp);
     }
 
-    return vec;
+    adjList = acyclicByBFS(adjList, "Honey");
 }
 
-vector<vector<string>> Graph::parsing1()
+void Graph::parsing1()
 {
     vector<vector<string>> vec;
     vector<string> temp = {"0", "Paris", "0", "Pop", "5"};
@@ -104,7 +179,15 @@ vector<vector<string>> Graph::parsing1()
     vec.push_back(temp27);
     vec.push_back(temp28);
 
-    return vec;
+    for (unsigned j = 0; j < vec.size(); j++)
+    {
+        pair<string, unsigned> temp;
+        temp.first = vec[j][3];
+        temp.second = (unsigned)stoi(vec[j][4]);
+        adjList[vec[j][1]].push_back(temp);
+    }
+
+    adjList = acyclicByBFS(adjList, "Paris");
 }
 
 map<string, vector<pair<string, unsigned>>> Graph::acyclicByBFS(map<string, vector<pair<string, unsigned>>> adjList2, string root) {
@@ -256,7 +339,7 @@ vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> a
 
 }
 
-    //No longer needed - Taken care of in the new shortest path method
+//No longer needed - Taken care of in the new shortest path method
 /*
     vector<string> Graph::convertMaptoVector(map<string, vector<pair<string, unsigned>>> adjMatrix1, string start, string end)
     {
@@ -271,133 +354,133 @@ vector<string> Graph::shortestPath(map<string, vector<pair<string, unsigned>>> a
 
 
 
-    vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > > adjList, string start, string end, unsigned K)
-    {
-        map<string, vector<pair<string, unsigned> > > temp1 = adjList;
-        vector<vector<string>> final1;
-        vector<vector<string>> temp;
-        temp.push_back(shortestPath(temp1, start, end));
+vector<vector<string> > Graph::yens(map<string, vector<pair<string, unsigned> > > adjList, string start, string end, unsigned K)
+{
+    map<string, vector<pair<string, unsigned> > > temp1 = adjList;
+    vector<vector<string>> final1;
+    vector<vector<string>> temp;
+    temp.push_back(shortestPath(temp1, start, end));
 
-        for (unsigned k = 1; k < K-1; k++)
+    for (unsigned k = 1; k < K-1; k++)
+    {
+        for (unsigned i = 0; i < (temp.at(k-1).size())-2; i++)
         {
-            for (unsigned i = 0; i < (temp.at(k-1).size())-2; i++)
+            string spurNode = temp.at(k-1).at(i);
+            vector<string> rootPath;
+            for (unsigned l = 0; l < i; l++)
             {
-                string spurNode = temp.at(k-1).at(i);
-                vector<string> rootPath;
+                rootPath.push_back((temp[k-1]).at(l));
+            }
+
+            for (unsigned j = 0; j < temp.size(); j++)
+            {
+                vector<string> rootPath1;
                 for (unsigned l = 0; l < i; l++)
                 {
-                    rootPath.push_back((temp[k-1]).at(l));
+                    rootPath1.push_back(temp.at(j).at(l));
                 }
 
-                for (unsigned j = 0; j < temp.size(); j++)
+                if (equal(rootPath.begin(), rootPath.end(), rootPath1.begin()))
                 {
-                    vector<string> rootPath1;
-                    for (unsigned l = 0; l < i; l++)
-                    {
-                        rootPath1.push_back(temp.at(j).at(l));
-                    }
-
-                    if (equal(rootPath.begin(), rootPath.end(), rootPath1.begin()))
-                    {
-                        temp1 = Graph::removeEdge(temp1, temp[j][i], temp[j][i+1]);
-                    }
+                    temp1 = Graph::removeEdge(temp1, temp[j][i], temp[j][i+1]);
                 }
+            }
 
 
-                for (unsigned p = 0; p < rootPath.size(); p++)
-                {
-                    if (rootPath[p].compare(spurNode) != 0)
-                        temp1.erase(rootPath.at(p));
-                }
+            for (unsigned p = 0; p < rootPath.size(); p++)
+            {
+                if (rootPath[p].compare(spurNode) != 0)
+                    temp1.erase(rootPath.at(p));
+            }
 
-                temp1 = removeConnections(rootPath, temp1);
+            temp1 = removeConnections(rootPath, temp1);
 
-                vector<string> spurPath = Graph::shortestPath(temp1, spurNode, end);
-                /*
-                for (unsigned u = 0; u < spurPath.size(); u++)
-                {
-                    cout<<spurPath[u];
-                }
-                 */
-                vector<string> totalPath;
-                totalPath.insert(totalPath.end(), rootPath.begin(), rootPath.end());
-                totalPath.insert(totalPath.end(), spurPath.begin(), spurPath.end());
-                /*
-                for (unsigned u = 0; u < totalPath.size(); u++)
-                {
-                    cout<<totalPath[u];
-                }
+            vector<string> spurPath = Graph::shortestPath(temp1, spurNode, end);
+            /*
+            for (unsigned u = 0; u < spurPath.size(); u++)
+            {
+                cout<<spurPath[u];
+            }
+             */
+            vector<string> totalPath;
+            totalPath.insert(totalPath.end(), rootPath.begin(), rootPath.end());
+            totalPath.insert(totalPath.end(), spurPath.begin(), spurPath.end());
+            /*
+            for (unsigned u = 0; u < totalPath.size(); u++)
+            {
+                cout<<totalPath[u];
+            }
 */
 
-                if (find(final1.begin(), final1.end(), totalPath) == final1.end())
-                {
-                    final1.push_back(totalPath);
-                }
-
-                temp1 = adjList;
-            }
-
-            if (final1.empty())
+            if (find(final1.begin(), final1.end(), totalPath) == final1.end())
             {
-                cout<<"here";
-                break;
+                final1.push_back(totalPath);
             }
 
-            Graph::finalSorter(final1);
-            temp.push_back(final1[0]);
-            final1.erase(final1.begin());
+            temp1 = adjList;
         }
-        return temp;
-    }
 
-    map<string, vector<pair<string, unsigned> > > Graph::removeConnections(vector<string> temp, map<string, vector<pair<string, unsigned> > > temp1)
-    {
-        for (auto i = temp1.begin(); i != temp1.end(); ++i)
+        if (final1.empty())
         {
-            for (unsigned j = 0; j < i->second.size(); j++)
+            cout<<"here";
+            break;
+        }
+
+        Graph::finalSorter(final1);
+        temp.push_back(final1[0]);
+        final1.erase(final1.begin());
+    }
+    return temp;
+}
+
+map<string, vector<pair<string, unsigned> > > Graph::removeConnections(vector<string> temp, map<string, vector<pair<string, unsigned> > > temp1)
+{
+    for (auto i = temp1.begin(); i != temp1.end(); ++i)
+    {
+        for (unsigned j = 0; j < i->second.size(); j++)
             if (find(temp.begin(), temp.end(), i->second[j].first) != temp.end())
             {
                 i->second.erase(i->second.begin()+j);
             }
-        }
-        return temp1;
     }
+    return temp1;
+}
 
-    map<string, vector<pair<string, unsigned> > > Graph::removeEdge(map<string, vector<pair<string, unsigned> > > temp, string parent, string child)
+map<string, vector<pair<string, unsigned> > > Graph::removeEdge(map<string, vector<pair<string, unsigned> > > temp, string parent, string child)
+{
+    for (auto i = temp.begin(); i != temp.end(); ++i)
     {
-        for (auto i = temp.begin(); i != temp.end(); ++i)
+        if ((i->first) == parent)
         {
-            if ((i->first) == parent)
+            for (unsigned j = 0; j < (i->second).size(); j++)
             {
-                for (unsigned j = 0; j < (i->second).size(); j++)
+                if (i->second[j].first == child)
                 {
-                    if (i->second[j].first == child)
-                    {
-                        i->second[j].second = 0;
-                    }
+                    i->second[j].second = 0;
                 }
             }
         }
-
-        return temp;
     }
 
-    vector<vector<string> > Graph::finalSorter(vector<vector<string> > temp)
+    return temp;
+}
+
+vector<vector<string> > Graph::finalSorter(vector<vector<string> > temp)
+{
+    vector<string> temp1;
+    int ind = 0;
+    unsigned least = temp[0].size();
+    for (unsigned i = 0; i < temp.size(); i++)
     {
-        vector<string> temp1;
-        int ind = 0;
-        unsigned least = temp[0].size();
-        for (unsigned i = 0; i < temp.size(); i++)
+        if (temp[i].size() < least)
         {
-            if (temp[i].size() < least)
-            {
-                least = temp[i].size();
-                temp1 = temp[i];
-                ind = i;
-            }
+            least = temp[i].size();
+            temp1 = temp[i];
+            ind = i;
         }
-
-        temp.erase(temp.begin()+ind);
-        temp.insert(temp.begin(), temp1);
-        return temp;
     }
+
+    temp.erase(temp.begin()+ind);
+    temp.insert(temp.begin(), temp1);
+    return temp;
+}

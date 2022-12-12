@@ -12,20 +12,22 @@
 #include <locale>
 #include "Graph.h"
 
-
-/*
-TEST_CASE("Parsing")
-{
-
-}
- */
-
-TEST_CASE("Shortest Path")
+TEST_CASE("Shortest Path 1")
 {
     Graph temp89 = Graph();
-    temp89.buildGraph();
+    temp89.parsing1();
     vector<string> temp87 = temp89.shortestPath(temp89.getMap(), "Paris", "France");
     vector<string> temp88 = {"Paris", "Pop", "Kys", "France"};
+    REQUIRE(temp87 == temp88);
+    REQUIRE(temp87.size() == temp88.size());
+}
+
+TEST_CASE("Shortest Path 2")
+{
+    Graph temp89 = Graph();
+    temp89.parsing1();
+    vector<string> temp87 = temp89.shortestPath(temp89.getMap(), "Egypt", "Sydney");
+    vector<string> temp88 = {"Egypt", "Pop", "Kys", "Sydney"};
     REQUIRE(temp87 == temp88);
     REQUIRE(temp87.size() == temp88.size());
 }
@@ -43,7 +45,7 @@ TEST_CASE("No Path")
 TEST_CASE("Yen's Algo 1")
 {
     Graph temp89 = Graph();
-    temp89.buildGraph();
+    temp89.parsing1();
     vector<vector<string>> temp87 = temp89.yens(temp89.getMap(), "Paris", "Candy", 3);
     vector<vector<string>> temp = {{"Paris", "Pop", "Candy"}, {"Paris", "Tower", "Candy"}};
     REQUIRE(temp.size() == 2);
@@ -55,7 +57,7 @@ TEST_CASE("Yen's Algo 1")
 TEST_CASE("Yen's Algo one path")
 {
     Graph temp89 = Graph();
-    temp89.buildGraph();
+    temp89.parsing1();
     vector<vector<string>> temp87 = temp89.yens(temp89.getMap(), "Paris", "France", 6);
     vector<vector<string>> temp = {{"Paris", "Pop", "Kys", "France"}, {"Paris", "Pop", "Kys", "France"}, {"Paris", "Pop", "Kys", "France"}, {"Paris", "Pop", "Kys", "France"}, {"Paris", "Pop", "Kys", "France"}};
     REQUIRE(temp == temp87);
