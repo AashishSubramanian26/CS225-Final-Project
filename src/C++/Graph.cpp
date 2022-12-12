@@ -9,29 +9,6 @@
 
 using namespace std;
 
-<<<<<<< Updated upstream
-void Graph::buildGraph() {
-
-
-    vector<vector<string>> vec = parsing2();
-    /*
-    //Parent Link, Parent Title, Child Link, Child Title, Weights
-    */
-
-    for (unsigned j = 0; j < vec.size(); j++)
-    {
-        pair<string, unsigned> temp;
-        temp.first = vec[j][3];
-        temp.second = (unsigned)stoi(vec[j][4]);
-        adjList[vec[j][1]].push_back(temp);
-    }
-
-    adjList = acyclicByBFS(adjList, "Paris");
-
-}
-
-vector<vector<string>> Graph::parsing2()
-=======
 long stoi1(const char *s)
 {
     long i;
@@ -45,7 +22,6 @@ long stoi1(const char *s)
 }
 
 void Graph::parsing2()
->>>>>>> Stashed changes
 {
     vector<vector<string> > vec;
     //map<string, vector<pair<string, unsigned>>> adjMatrix;
@@ -69,14 +45,6 @@ void Graph::parsing2()
         }
         fileCounter++;
     }
-<<<<<<< Updated upstream
-    for()
-    /*
-    for (auto it1 = vec.begin(); it1 != vec.end(); ++it1){
-        if(it1->size()!=5){
-            auto it2 = it1;
-            vec.erase(it2);
-=======
 
 
     for (int i = 0; i < (int) vec.size(); i++){
@@ -132,10 +100,8 @@ void Graph::parsing2()
 
         if(boolCheckCharacter==1){
             vec.erase(vec.begin()+i);
->>>>>>> Stashed changes
         }
     }
-    */
 
     for (unsigned j = 0; j < vec.size(); j++)
     {
