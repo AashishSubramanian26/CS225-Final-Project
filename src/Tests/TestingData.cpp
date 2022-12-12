@@ -32,6 +32,15 @@ TEST_CASE("Shortest Path 2")
     REQUIRE(temp87.size() == temp88.size());
 }
 
+TEST_CASE("Shortest Path 3")
+{
+    Graph temp89 = Graph();
+    temp89.parsing2();
+    vector<string> temp87 = temp89.shortestPath(temp89.getMap(), "Ladder", "Honey");
+    vector<string> temp88 = {"Ladder", "Woodchipper", "Wood", "Whipsaw", "Wedge prism", "Washington Winch",  "Two-man saw", "Tsakat", "Tree spade", "Tree shelter", "Tree planting bar", "Tree planting", "Tree measurement", "Tree caliper", "Tool", "Rope", "Pyramid", "Honey"};
+    REQUIRE(temp87 == temp88);
+    REQUIRE(temp87.size() == temp88.size());
+}
 /*
 TEST_CASE("No Path")
 {
@@ -64,3 +73,11 @@ TEST_CASE("Yen's Algo one path")
     REQUIRE(temp.size() == temp87.size());
 }
 
+TEST_CASE("Yen's Algo Big")
+{
+    Graph temp89 = Graph();
+    temp89.parsing1();
+    vector<vector<string>> temp87 = temp89.yens(temp89.getMap(), "Ladder", "Honey", 4);
+    REQUIRE(temp87[0]. size() == 18);
+    REQUIRE(temp87.size() == 3);
+}
