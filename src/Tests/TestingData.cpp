@@ -26,8 +26,8 @@ TEST_CASE("Shortest Path 2")
 {
     Graph temp89 = Graph();
     temp89.parsing1();
-    vector<string> temp87 = temp89.shortestPath(temp89.getMap(), "Egypt", "Sydney");
-    vector<string> temp88 = {"Egypt", "Pop", "Kys", "Sydney"};
+    vector<string> temp87 = temp89.shortestPath(temp89.getMap(), "Pop", "Egypt");
+    vector<string> temp88 = {"Pop", "Kys", "France", "Egypt"};
     REQUIRE(temp87 == temp88);
     REQUIRE(temp87.size() == temp88.size());
 }

@@ -136,6 +136,7 @@ void Graph::parsing1()
     vec.push_back(temp2);
     vec.push_back(temp3);
     vec.push_back(temp9);
+    vec.push_back(temp20);
     vec.push_back(temp21);
     vec.push_back(temp22);
     vec.push_back(temp23);
@@ -147,10 +148,10 @@ void Graph::parsing1()
 
     for (unsigned j = 0; j < vec.size(); j++)
     {
-        pair<string, unsigned> temp;
-        temp.first = vec[j][3];
-        temp.second = (unsigned)stoi(vec[j][4]);
-        adjList[vec[j][1]].push_back(temp);
+        pair<string, unsigned> temp90;
+        temp90.first = vec[j][3];
+        temp90.second = (unsigned)stoi(vec[j][4]);
+        adjList[vec[j][1]].push_back(temp90);
     }
 
     adjList = acyclicByBFS(adjList, "Paris");
