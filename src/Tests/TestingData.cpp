@@ -41,15 +41,6 @@ TEST_CASE("Shortest Path 3")
     REQUIRE(temp87 == temp88);
     REQUIRE(temp87.size() == temp88.size());
 }
-/*
-TEST_CASE("No Path")
-{
-    Graph temp89 = Graph();
-    temp89.buildGraph();
-    vector<string> temp88 = temp89.shortestPath(temp89.getMap(), "Chimney", "France");
-    REQUIRE(temp88.size() == 2);
-}
- */
 
 TEST_CASE("Yen's Algo 1")
 {
@@ -71,13 +62,4 @@ TEST_CASE("Yen's Algo one path")
     vector<vector<string>> temp = {{"Paris", "Pop", "Kys", "France"}, {"Paris", "Pop", "Kys", "France"}, {"Paris", "Pop", "Kys", "France"}, {"Paris", "Pop", "Kys", "France"}, {"Paris", "Pop", "Kys", "France"}};
     REQUIRE(temp == temp87);
     REQUIRE(temp.size() == temp87.size());
-}
-
-TEST_CASE("Yen's Algo Big")
-{
-    Graph temp89 = Graph();
-    temp89.parsing1();
-    vector<vector<string>> temp87 = temp89.yens(temp89.getMap(), "Ladder", "Honey", 4);
-    REQUIRE(temp87[0]. size() == 18);
-    REQUIRE(temp87.size() == 3);
 }
