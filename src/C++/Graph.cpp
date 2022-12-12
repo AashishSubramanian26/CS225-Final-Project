@@ -21,26 +21,6 @@ long stoi1(const char *s)
     return i;
 }
 
-void Graph::buildGraph() {
-
-
-    vector<vector<string>> vec = parsing2();
-    /*
-    //Parent Link, Parent Title, Child Link, Child Title, Weights
-    */
-
-    for (unsigned j = 0; j < vec.size(); j++)
-    {
-        pair<string, unsigned> temp;
-        temp.first = vec[j][3];
-        temp.second = (unsigned)stoi(vec[j][4]);
-        adjList[vec[j][1]].push_back(temp);
-    }
-
-    adjList = acyclicByBFS(adjList, "Paris");
-
-}
-
 vector<vector<string>> Graph::parsing2()
 {
     vector<vector<string> > vec;
