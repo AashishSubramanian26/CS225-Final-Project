@@ -427,4 +427,3 @@ ProcessorCount_cmd_nproc-ADVANCED:INTERNAL=1
 ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
 //Catch2 full path to CatchAddTests.cmake helper file
 _CATCH_DISCOVER_TESTS_SCRIPT:INTERNAL=/usr/lib/cmake/Catch2/CatchAddTests.cmake
-

@@ -53,14 +53,15 @@ vector<vector<string>> Graph::parsing2()
         }
         fileCounter++;
     }
-
+    for()
+    /*
     for (auto it1 = vec.begin(); it1 != vec.end(); ++it1){
         if(it1->size()!=5){
             auto it2 = it1;
             vec.erase(it2);
         }
     }
-
+    */
 
     for(unsigned i=0; i<vec.size(); i++){
         for(unsigned j =0; j<vec[i].size(); j++){

@@ -57,3 +57,25 @@ Code Code Code. We'll assign classes for each person to write up, and also still
 
 ## Optional: Questions for mentor
 Can we contact you during the break if we're stuck on something while coding?
+-----------------------------------------------------------------------------------------------------
+# Development Log 4
+# Development Log (Date: 11/19/22 -- 12/02/22)
+
+## Weekly Goals
+
+Our goals for this week were to create the makefile and test cases to begin testing our code. Over break we mostly finished the code, and just had to work on our algorithms. We also had to prepare for the mid-project check-in. Yens and Djikstras and BFS are all complete, we just need to test them. 
+
+## Specific Tasks Completed (and by who)
+
+We have essentially completed all the algorithms. Aashish and Ved worked on the makefile and test cases for the python and C++ code, Aditya worked on the BFS algorithm and Yens, while I finalized Djikstra's and the BFS algorithm as well.  
+
+## Problems Encountered 
+
+We had a lot of bugs with the makefile, as it wasn't finishing compiling the code and were giving us errors. Eventually, we finally finished debugging that. More importantly, when it came to Djikstra's algorithm, the algorithm given to us in lecture was not that helpful and kept giving us confusions when trying to write up the code for our purposes. Djikstra's essentially finds the shortest distance between any two nodes, and when you try to contemplate writing the code using the pseudocode, it makes it confusing how to implement it and where do actually use the d and p arrays. Also the course given djikstra algo has variants with djikstras found online and we have to figure out the best way to implement it. We have an implementation now, we just need to get to testing it.
+
+## Plans for next week
+
+Test code and build user interface in terminal for user using the code. Next week will be the final stretch of the final project so we need to write the essay, script and slides for video, and record video. 
+
+## Optional: Questions for mentor
+Please let me know if you have any time in the coming week to talk about Djikstras. I wish there was a lab or mp that introduced us on how to implement it beyond theory. 
