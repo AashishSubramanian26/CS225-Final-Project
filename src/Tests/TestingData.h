@@ -6,8 +6,8 @@
 #define FINAL_PROJECT_TESTINGDATA_H
 
 
-class TestingData {
-
+class TestingData{
+public:
 };
 
 

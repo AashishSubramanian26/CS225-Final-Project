@@ -1,7 +1,9 @@
-C:\Windows\system32\wsl.exe --distribution cs225-container --exec /bin/bash -c "export CMAKE_COLOR_DIAGNOSTICS=ON && export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/c/Users/Aditya/Documents/GitHub/CS225-Final-Project/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' -S /mnt/c/Users/Aditya/Documents/GitHub/CS225-Final-Project -B /mnt/c/Users/Aditya/Documents/GitHub/CS225-Final-Project/cmake-build-debug"
-CMake Error at CMakeLists.txt:14:
-  Parse error.  Expected a command name, got unquoted argument with text
-  "CXX=clang++".
+C:\Windows\system32\wsl.exe --distribution cs225-container --exec /bin/bash -c "export CMAKE_COLOR_DIAGNOSTICS=ON && export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd '/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug' && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' -S '/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main' -B '/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug'"
+-- Looks like you are not using the provided container.
+CMake Warning at CMakeLists.txt:52 (message):
+  Make sure you test on the CS225 container before the deadline.
 
 
--- Configuring incomplete, errors occurred!
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug
