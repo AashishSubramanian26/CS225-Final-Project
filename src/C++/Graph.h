@@ -38,9 +38,9 @@ public:
 
     map<string, vector<pair<string, unsigned>>> acyclicByBFS(map<string, vector<pair<string, unsigned>>> adjList2, string root);
 
-    vector<vector<string>> parsing1();
+    void parsing1();
 
-    vector<vector<string>> parsing2();
+    void parsing2();
 
     int getIdx(map<string, vector<pair<string, bool >>> mP, string parent, string child);
     int getIdx2(map<string, vector<pair<string, unsigned >>> mP, string parent, string child);
