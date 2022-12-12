@@ -9,6 +9,18 @@
 
 using namespace std;
 
+long stoi1(const char *s)
+{
+    long i;
+    i = 0;
+    while(*s >= '0' && *s <= '9')
+    {
+        i = i * 10 + (*s - '0');
+        s++;
+    }
+    return i;
+}
+
 void Graph::buildGraph() {
 
 
@@ -53,15 +65,61 @@ vector<vector<string>> Graph::parsing2()
         }
         fileCounter++;
     }
-    for()
-    /*
-    for (auto it1 = vec.begin(); it1 != vec.end(); ++it1){
-        if(it1->size()!=5){
-            auto it2 = it1;
-            vec.erase(it2);
+    
+    
+    for (int i = 0; i < (int) vec.size(); i++){
+        int x = 0;
+        string fifth = vec[i][4];
+        int boolCheckCharacter = 0;
+        vector<char> alphabet;
+        alphabet.push_back('a');
+        alphabet.push_back('b');
+        alphabet.push_back('c');
+        alphabet.push_back('d');
+        alphabet.push_back('e');
+        alphabet.push_back('f');
+        alphabet.push_back('g');
+        alphabet.push_back('h');
+        alphabet.push_back('i');
+        alphabet.push_back('j');
+        alphabet.push_back('k');
+        alphabet.push_back('l');
+        alphabet.push_back('m');
+        alphabet.push_back('n');
+        alphabet.push_back('o');
+        alphabet.push_back('p');
+        alphabet.push_back('q');
+        alphabet.push_back('r');
+        alphabet.push_back('s');
+        alphabet.push_back('t');
+        alphabet.push_back('u');
+        alphabet.push_back('v');
+        alphabet.push_back('w');
+        alphabet.push_back('x');
+        alphabet.push_back('y');
+        alphabet.push_back('z');
+        alphabet.push_back('.');
+        alphabet.push_back('-');
+        alphabet.push_back('+');
+        alphabet.push_back(',');
+        alphabet.push_back(';');
+        alphabet.push_back('/');
+        alphabet.push_back('\'');
+        alphabet.push_back('#');
+
+        for(int j =0 ; j< (int) alphabet.size(); j++){
+            if(fifth.find(alphabet[j])<fifth.length()){
+                boolCheckCharacter = 1;
+            }
+        }
+        //,'b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+        if(vec.at(i).size()!=5 ){
+            vec.erase(vec.begin()+i);
+        }
+        else if(boolCheckCharacter==1){
+            vec.erase(vec.begin()+i);
         }
     }
-    */
 
     for(unsigned i=0; i<vec.size(); i++){
         for(unsigned j =0; j<vec[i].size(); j++){
