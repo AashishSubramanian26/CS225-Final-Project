@@ -1,11 +1,6 @@
 {
     "files.associations": {
         "utility": "cpp",
-        "map": "cpp",
-
-        "tuple": "cpp",
-        "type_traits": "cpp"
-        "vector": "cpp"
-
+        "map": "cpp"
     }
 }

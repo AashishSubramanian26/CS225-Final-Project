@@ -1,0 +1,7 @@
+/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/CMakeFiles/test.dir
+/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/CMakeFiles/main.dir
+/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/src/C++/CMakeFiles/src.dir
+/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/src/C++/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/src/C++/CMakeFiles/rebuild_cache.dir

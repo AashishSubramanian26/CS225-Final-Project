@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="final-project"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\..\..\usr\lib\cmake\;CMake Files\..\..\..\..\..\..\..\..\usr\lib\cmake\Catch2\;CMake Files\src\;CMake Files\src\C++\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option output="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/C++"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test/fast">
+				<Option output="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/C++"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 test/fast"/>
+					<CompileFile command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main">
+				<Option output="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 main"/>
+					<CompileFile command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main/fast">
+				<Option output="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 main/fast"/>
+					<CompileFile command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="src">
+				<Option output="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/src/C++/libsrc.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/src/C++"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/C++"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/src/C++/Makefile&quot;  VERBOSE=1 src"/>
+					<CompileFile command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/src/C++/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/src/C++/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/src/C++/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="src/fast">
+				<Option output="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/src/C++/libsrc.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/cmake-build-debug/src/C++"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/C++"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/src/C++/Makefile&quot;  VERBOSE=1 src/fast"/>
+					<CompileFile command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/src/C++/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/src/C++/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j24 -f &quot;/mnt/c/Users/Aditya/Desktop/Clion225/CS\ 225/CS225-Final-Project-main/cmake-build-debug/src/C++/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/C++/Graph.cpp">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/C++/Graph.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/C++/ShortestPath.h">
+			<Option target="test"/>
+			<Option target="main"/>
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/C++/Webscraper.cpp">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/C++/Webscraper.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/C++/main.cpp">
+			<Option target="main"/>
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/Tests/TestingData.cpp">
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/Tests/TestingData.h">
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/../../../../../../../../usr/lib/cmake/Catch2/Catch.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\cmake\Catch2\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/../../../../../../../../usr/lib/cmake/Catch2/Catch2Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\cmake\Catch2\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/../../../../../../../../usr/lib/cmake/Catch2/Catch2ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\cmake\Catch2\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/../../../../../../../../usr/lib/cmake/Catch2/Catch2Targets-noconfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\cmake\Catch2\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/../../../../../../../../usr/lib/cmake/Catch2/Catch2Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\usr\lib\cmake\Catch2\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Aditya/Desktop/Clion225/CS 225/CS225-Final-Project-main/src/C++/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\C++\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
