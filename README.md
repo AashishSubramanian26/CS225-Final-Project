@@ -1,6 +1,8 @@
 # CS225-Final-Project
 This is our groups CS225 Final Project's Github Link so we can publicly share and send our code
 
+Our final project video can be found here: https://www.youtube.com/watch?v=raphAr1lRiI. 
+
 Members: Aashish Subramanian, Aditya Patel, Ved Eti, Soumil Gupta
 NetID's: asubr2, apate508, vedeti2, soumilg2
 
